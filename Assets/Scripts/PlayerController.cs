@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    //Velocità del Player
-    public float speed = 3;
+    [Tooltip ("Velocità di moovimento"),Range(2,20)]
+    public int speed = 6;     
+    [Tooltip ("Dimensione metà sprite")]
     public Vector2 halfSpriteSize;
+
+    public AnimationCurve accelerationCurve;
+    float inputTime = 0f;
+    Vector2 dir = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -22,30 +26,46 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        // creo vettore direzione 
-        Vector2 dir = new Vector2(x, y).normalized;
+        // creo vettore direzione input
+        Vector2 inputDir = new Vector2(x, y).normalized;
+        
+        // creo vettore direzione
 
-        Move(dir);
-
-
+        if (inputDir.Equals(Vector2.zero))
+        {
+            inputTime-=Time.deltaTime;
+            inputTime = Mathf.Clamp(inputTime,0,1);
+        }
+        else
+        {
+            dir = inputDir;
+            inputTime+=Time.deltaTime;
+            inputTime = Mathf.Clamp(inputTime,0,1);
+        }
+            
+        Move(dir,inputTime);
     }
-    void Move(Vector2 direction)
+    
+    void Move(Vector2 direction, float inputTime)
     {
         // cerco limiti dello schermo
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
+        //aggiungo l altezza e la larghezza della sprite per evitare che esca fuori
         min.x += halfSpriteSize.x;
         min.y += halfSpriteSize.y;
-
         max.x -= halfSpriteSize.x;
         max.y -= halfSpriteSize.y;
 
         // posizione Player
         Vector2 position = transform.position;
 
+        // calcolo curva di accellerazione
+        float acceleration = accelerationCurve.Evaluate(inputTime);
+
         // posizione aggiornata
-        position += direction * speed * Time.deltaTime;
+        position += direction * speed *acceleration* Time.deltaTime;
 
         // costringo il Player nei limiti dello schermo
         position.x = Mathf.Clamp(position.x, min.x, max.x);
@@ -53,7 +73,6 @@ public class PlayerController : MonoBehaviour
 
         // setto nuova posizione del Player
         transform.position = position;
-
     }
 
 }
