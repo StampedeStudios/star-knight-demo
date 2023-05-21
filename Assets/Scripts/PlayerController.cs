@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Tooltip ("Velocità di moovimento"),Range(2,20)]
-    public int speed = 6;     
-    [Tooltip ("Dimensione metà sprite")]
+    [Tooltip("Velocità di moovimento"), Range(2, 20)]
+    public int speed = 6;
+    [Tooltip("Dimensione metà sprite")]
     public Vector2 halfSpriteSize;
 
-    public AnimationCurve accelerationCurve;
+    public Animator animator;
+
+    public AnimationCurve accelerationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     float inputTime = 0f;
     Vector2 dir = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -28,24 +29,32 @@ public class PlayerController : MonoBehaviour
 
         // creo vettore direzione input
         Vector2 inputDir = new Vector2(x, y).normalized;
-        
+
         // creo vettore direzione
 
         if (inputDir.Equals(Vector2.zero))
         {
-            inputTime-=Time.deltaTime;
-            inputTime = Mathf.Clamp(inputTime,0,1);
+            animator.SetBool("IsAccelerating", false);
+            inputTime -= Time.deltaTime;
+            inputTime = Mathf.Clamp(inputTime, 0, 1);
+        }
+        else if (inputDir.y > 0)
+        {
+            animator.SetBool("IsAccelerating", true);
+            dir = inputDir;
+            inputTime += Time.deltaTime;
+            inputTime = Mathf.Clamp(inputTime, 0, 1);
         }
         else
         {
             dir = inputDir;
-            inputTime+=Time.deltaTime;
-            inputTime = Mathf.Clamp(inputTime,0,1);
+            inputTime += Time.deltaTime;
+            inputTime = Mathf.Clamp(inputTime, 0, 1);
         }
-            
-        Move(dir,inputTime);
+
+        Move(dir, inputTime);
     }
-    
+
     void Move(Vector2 direction, float inputTime)
     {
         // cerco limiti dello schermo
@@ -65,7 +74,7 @@ public class PlayerController : MonoBehaviour
         float acceleration = accelerationCurve.Evaluate(inputTime);
 
         // posizione aggiornata
-        position += direction * speed *acceleration* Time.deltaTime;
+        position += direction * speed * acceleration * Time.deltaTime;
 
         // costringo il Player nei limiti dello schermo
         position.x = Mathf.Clamp(position.x, min.x, max.x);
