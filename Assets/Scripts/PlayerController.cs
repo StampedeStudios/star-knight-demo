@@ -15,14 +15,32 @@ public class PlayerController : MonoBehaviour
     float inputTime = 0f;
     Vector2 dir = Vector2.zero;
 
+    public GameObject bullet;
+    GameObject leftWeapon;
+    GameObject rightWeapon;
+
+    bool isRightWeapon = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        leftWeapon= transform.Find("LeftWeapon").gameObject;
+        rightWeapon = transform.Find("RightWeapon").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown("space"))
+        {
+           InvokeRepeating("Shoot",0f,0.1f);
+        }
+
+        if(Input.GetKeyUp("space"))
+        {
+            CancelInvoke("Shoot");
+        }
+
         //catturo assi 
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
@@ -84,4 +102,21 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
     }
 
+    void Shoot()
+    {
+        GameObject bullet1 = (GameObject)Instantiate(bullet);
+
+        if(isRightWeapon)
+        {
+            bullet1.transform.position = rightWeapon.transform.position;
+            isRightWeapon=false;
+        }
+        else
+        {
+            bullet1.transform.position = leftWeapon.transform.position;
+            isRightWeapon=true;
+        }
+        
+
+    }
 }
