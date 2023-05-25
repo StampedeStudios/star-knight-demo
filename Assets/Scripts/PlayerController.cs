@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Tooltip("Velocità di moovimento"), Range(2, 20)]
-    public int speed = 6;
-    [Tooltip("Dimensione metà sprite")]
-    public Vector2 halfSpriteSize;
+    [Tooltip("Forza di propulsione"), Range(2, 20)]
+    public float accelerationForce = 7f;
 
+    [Tooltip("Forza di attrito"), Range(-2, -10)]
+    public float frictionForce = -3f;
+
+    [Tooltip("Margine esterno extra")]
+    public Vector2 extraMargin =  Vector2.one;
+
+    [Tooltip("Animatore")]
     public Animator animator;
-
-    Vector2 dir = Vector2.zero;
 
     public GameObject bullet;
     GameObject leftWeapon;
@@ -23,15 +26,11 @@ public class PlayerController : MonoBehaviour
 
     Vector2 residualVelocity;
 
-    float gravityForce = 2f;
-
-    float frictionForce = -3f;
-
-    float accelerationForce = 7f;
 
     // Start is called before the first frame update
     void Start()
     {
+        // recupero i componenti child che uso per calcolare lo spawn dei proiettili
         leftWeapon = transform.Find("LeftWeapon").gameObject;
         rightWeapon = transform.Find("RightWeapon").gameObject;
 
@@ -40,18 +39,20 @@ public class PlayerController : MonoBehaviour
         max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
 
         //aggiungo un extra bordo per evitare che il player esca fuori 
-        min.x += halfSpriteSize.x;
-        min.y += halfSpriteSize.y;
-        max.x -= halfSpriteSize.x;
-        max.y -= halfSpriteSize.y;
+        min.x += extraMargin.x;
+        min.y += extraMargin.y;
+        max.x -= extraMargin.x;
+        max.y -= extraMargin.y;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // premo spazio
         if (Input.GetKeyDown("space"))
             InvokeRepeating("Shoot", 0f, 0.1f);
 
+        // rilascio spazio
         if (Input.GetKeyUp("space"))
             CancelInvoke("Shoot");
 
@@ -62,35 +63,41 @@ public class PlayerController : MonoBehaviour
         // creo vettore direzione input
         Vector2 inputDir = new Vector2(x, y).normalized;
 
+        // applico animazione accellerazione quando mi muovo in avanti
+        if (y > 0)
+            animator.SetBool("isAccelerating", true);
+        else
+            animator.SetBool("isAccelerating", false);
 
         Move(inputDir);
     }
 
+    // muovo il player
     void Move(Vector2 inputDirection)
     {
         Vector2 velocity = Vector2.zero;
 
         if (inputDirection.magnitude > 0)
         {
+            // input di direzione presente :  accellero
             velocity = residualVelocity + inputDirection * accelerationForce * Time.deltaTime;
-            Debug.Log(velocity.magnitude);
         }
         else
         {
+            // input di direzione assente :  decellero
             velocity = residualVelocity + residualVelocity * frictionForce * Time.deltaTime;
         }
-
-        velocity += Vector2.down * gravityForce * Time.deltaTime;
 
         residualVelocity = velocity;
 
 
-        // posizione Player
+        // acquisisco posizione del Player
         Vector2 position = transform.position;
 
-        // posizione aggiornata
+        // aggiorno posizione del Player
         position += velocity * Time.deltaTime;
 
+        // costringo il Player nei limiti inpostati e azzero la velocita residua quando li raggiungo
         if (position.x < min.x)
         {
             residualVelocity.x = 0f;
@@ -112,19 +119,17 @@ public class PlayerController : MonoBehaviour
             position.y = max.y;
         }
 
-
-        // costringo il Player nei limiti dello schermo
-        //position.x = Mathf.Clamp(position.x, min.x, max.x);
-        //position.y = Mathf.Clamp(position.y, min.y, max.y);
-
-        // setto nuova posizione del Player
+        // imposto nuova posizione del Player
         transform.position = position;
     }
 
+    // sparo proiettili
     void Shoot()
     {
+        // instanzio il proiettile
         GameObject bullet1 = (GameObject)Instantiate(bullet);
 
+        // alterno il fuoco dalle due armi
         if (isRightWeapon)
         {
             bullet1.transform.position = rightWeapon.transform.position;
@@ -135,7 +140,5 @@ public class PlayerController : MonoBehaviour
             bullet1.transform.position = leftWeapon.transform.position;
             isRightWeapon = true;
         }
-
-
     }
 }
