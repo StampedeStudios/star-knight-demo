@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -14,12 +12,13 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 10f;
 
     [Tooltip("Margine esterno extra")]
-    public Vector2 extraMargin =  Vector2.one;
+    public Vector2 extraMargin = Vector2.one;
 
     [Tooltip("Animatore")]
     public Animator animator;
 
     public GameObject bullet;
+
     GameObject leftWeapon;
     GameObject rightWeapon;
 
@@ -33,6 +32,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         // recupero i componenti child che uso per calcolare lo spawn dei proiettili
         leftWeapon = transform.Find("LeftWeapon").gameObject;
         rightWeapon = transform.Find("RightWeapon").gameObject;
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // imposto una velocita massima raggiungibile
-        velocity = Vector2.ClampMagnitude(velocity,maxSpeed);
+        velocity = Vector2.ClampMagnitude(velocity, maxSpeed);
 
         residualVelocity = velocity;
 
