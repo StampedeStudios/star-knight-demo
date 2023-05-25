@@ -380,6 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerationForce: 7
   frictionForce: -3
+  maxSpeed: 10
   extraMargin: {x: 1, y: 1}
   animator: {fileID: 894082587}
   bullet: {fileID: 4265731537205179880, guid: b03ac7ad029e1f94da6bee1bc88ad374, type: 3}

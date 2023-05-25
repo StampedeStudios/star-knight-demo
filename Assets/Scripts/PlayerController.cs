@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Forza di attrito"), Range(-2, -10)]
     public float frictionForce = -3f;
 
+    [Tooltip("Velocità massima raggiungibile"), Range(2, 20)]
+    public float maxSpeed = 10f;
+
     [Tooltip("Margine esterno extra")]
     public Vector2 extraMargin =  Vector2.one;
 
@@ -87,6 +90,9 @@ public class PlayerController : MonoBehaviour
             // input di direzione assente :  decellero
             velocity = residualVelocity + residualVelocity * frictionForce * Time.deltaTime;
         }
+
+        // imposto una velocita massima raggiungibile
+        velocity = Vector2.ClampMagnitude(velocity,maxSpeed);
 
         residualVelocity = velocity;
 
