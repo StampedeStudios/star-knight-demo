@@ -16,10 +16,10 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Margine esterno extra")]
     public Vector2 extraMargin =  Vector2.one;
 
-    [Tooltip("Animatore")]
-    public Animator animator;
-
+    [Tooltip("Prefab del proiettile")]
     public GameObject bullet;
+
+    Animator animator;
     GameObject leftWeapon;
     GameObject rightWeapon;
 
@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
         // recupero i componenti child che uso per calcolare lo spawn dei proiettili
         leftWeapon = transform.Find("LeftWeapon").gameObject;
         rightWeapon = transform.Find("RightWeapon").gameObject;
+
+        // recupero l'animatore agganciato al Player
+        animator = transform.GetComponent<Animator>();
 
         // cerco limiti dello schermo
         min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
