@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f257621b8a9139e468b52307972acb26
+guid: d5da33f640efd514db5d74309272e098
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 156
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bullet_0
+      name: BulletExplosion_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6654879ed7b00242b810b2d35e1cb6e
-      internalID: -935012933
+      spriteID: 7e051cdb503aeb44bb029d06c9a54f20
+      internalID: -770143515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_1
+      name: BulletExplosion_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d38c125f3880464f969e17b14726df2
-      internalID: -1947624374
+      spriteID: 524a7491a8574aa4ead8dac021d9d55b
+      internalID: 1640906079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_2
+      name: BulletExplosion_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e9c2ca9c12e2f74396ad69ccfe9eb9e
-      internalID: -380389462
+      spriteID: 58cfed302cef47a4ab765a137441d76d
+      internalID: 469917502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bullet_3
+      name: BulletExplosion_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c72155b55b4ff44ca7d1e3b2970499a
-      internalID: -1672062581
+      spriteID: f186b8ebf5d32cf428f7830e46d1906f
+      internalID: -1463903326
       vertices: []
       indices: 
       edges: []
@@ -211,10 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bullet_0: -935012933
-      Bullet_1: -1947624374
-      Bullet_2: -380389462
-      Bullet_3: -1672062581
+      BulletExplosion_0: -770143515
+      BulletExplosion_1: 1640906079
+      BulletExplosion_2: 469917502
+      BulletExplosion_3: -1463903326
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
