@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour, IHittableInterface
@@ -78,7 +75,7 @@ public class EnemyController : MonoBehaviour, IHittableInterface
             {
                 IHittableInterface hittableInterface = other.collider.GetComponent<IHittableInterface>();
                 hittableInterface.DealDamage(explosionDamage);
-                Destroy(gameObject);
+                GetComponent<Animator>().SetBool("isDead", true);
             }
         }
     }
@@ -87,11 +84,14 @@ public class EnemyController : MonoBehaviour, IHittableInterface
     {
         life -= damage;
         if (life <= 0)
-            Destroy(gameObject);
+        {
+            GetComponent<Animator>().SetBool("isDead", true);
+        }
     }
 
-    private void OnDestroy()
+    void DestroyShip()
     {
-
+        // TODO Gestisci punti
+        Destroy(gameObject);
     }
 }

@@ -41,11 +41,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3049213321814998767}
   - component: {fileID: 3049213321814998752}
-  - component: {fileID: 3049213321814998765}
-  - component: {fileID: 3049213321814998764}
   - component: {fileID: -5468188410324461900}
   - component: {fileID: 7587722014506274643}
   - component: {fileID: 3643014066445085834}
+  - component: {fileID: 190043440}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: EnemyShip
@@ -121,48 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!320 &3049213321814998765
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3049213321814998754}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 6e0a6c9439e3ab44fb3b58d404fe1d0f, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 1
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -3825007943944716616, guid: 6e0a6c9439e3ab44fb3b58d404fe1d0f, type: 2}
-    value: {fileID: 3049213321814998754}
-  - key: {fileID: -6840765403592602700, guid: 6e0a6c9439e3ab44fb3b58d404fe1d0f, type: 2}
-    value: {fileID: 3049213321814998764}
-  m_ExposedReferences:
-    m_References: []
---- !u!95 &3049213321814998764
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3049213321814998754}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-5468188410324461900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +184,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &190043440
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049213321814998754}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d55883b232b44f468578e41cd7fc020, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
