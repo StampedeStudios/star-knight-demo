@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: -5468188410324461900}
   - component: {fileID: 7587722014506274643}
   - component: {fileID: 3643014066445085834}
-  - component: {fileID: 190043440}
+  - component: {fileID: 6320897602975285173}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: EnemyShip
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.571429, y: 4.571429}
+    oldSize: {x: 4.572545, y: 4.571429}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -184,7 +184,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &190043440
+--- !u!95 &6320897602975285173
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
