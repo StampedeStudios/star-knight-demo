@@ -326,6 +326,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Enemy_10
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6f3731b17cee2648bbc6fa5a9242cd8
+      internalID: 870636016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_11
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f924f714b2ba4524a8c271001fcfe967
+      internalID: 1220741467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -339,6 +381,8 @@ TextureImporter:
     nameFileIdTable:
       Enemy_0: 2018112167
       Enemy_1: 1826178775
+      Enemy_10: 870636016
+      Enemy_11: 1220741467
       Enemy_2: -742102952
       Enemy_3: -1948886901
       Enemy_4: -1723847403

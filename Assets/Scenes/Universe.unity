@@ -545,13 +545,13 @@ MonoBehaviour:
   levelDifficulties:
   - enemyTypes:
     - enemy: {fileID: 5846200306305751280, guid: fd62968a3d222874e89445a384263bcb, type: 3}
-      percentage: 0.054
+      percentage: 0.05
     - enemy: {fileID: 969086414217439044, guid: eb88b48967c61fe49b3addb9cb4adfee, type: 3}
-      percentage: 0.06
+      percentage: 0.05
     - enemy: {fileID: 6237353549136497810, guid: 88b88cd6c76074e4cb8fd450cd57b2d8, type: 3}
-      percentage: 0.068
+      percentage: 0.05
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 0.752
+      percentage: 0.75
     maxSpawnTime: 4
 --- !u!4 &900478550
 Transform:
