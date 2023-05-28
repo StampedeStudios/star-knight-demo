@@ -2,6 +2,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameInstance : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameInstance : MonoBehaviour
         [Tooltip("Percentuale di spawn di ciascun nemico")]
         public EnemyType[] enemyTypes;
         public float maxSpawnTime;
+        public int goal;
     }
 
     [Tooltip("Lista di nemici spawnabili per ciascun livello")]
@@ -33,15 +35,18 @@ public class GameInstance : MonoBehaviour
 
     EnemyType[] currentEnemyPercentage;
 
-    //float difficultyTimer = 12f;
-
     float extraMargin = 4f;
 
     float enemySize = 1f;
 
     float minSpawnTime = 2f;
 
-    float maxSpawnTime ;
+    float maxSpawnTime;
+
+    public Text scoreText;
+
+    int score = 0;
+
 
 
     // Start is called before the first frame update
@@ -53,11 +58,9 @@ public class GameInstance : MonoBehaviour
         currentEnemyPercentage = levelDifficulties[0].enemyTypes;
         maxSpawnTime = levelDifficulties[0].maxSpawnTime;
 
+        scoreText.text = score.ToString();
         // inizio lo spaw dei nemici
         StartCoroutine(CallSpawn(1f));
-
-        // timer che incrementa la difficolta
-        //InvokeRepeating("IncreaseDifficulty", difficultyTimer, difficultyTimer);
 
     }
 
@@ -67,7 +70,7 @@ public class GameInstance : MonoBehaviour
         SpawnEnemy();
 
         // randomizzo il tempo di spawn succesivo
-        float newDelay = UnityEngine.Random.Range(minSpawnTime,maxSpawnTime);
+        float newDelay = UnityEngine.Random.Range(minSpawnTime, maxSpawnTime);
         yield return new WaitForSeconds(newDelay);
 
         StartCoroutine(CallSpawn(newDelay));
@@ -132,7 +135,7 @@ public class GameInstance : MonoBehaviour
             // scelgo la posizione di spawn
             int randomPosElem = UnityEngine.Random.Range(0, spawnPoints.Length);
             Vector2 randomPosition = spawnPoints[randomPosElem] + new Vector2(UnityEngine.Random.Range(-extraMargin, extraMargin), 0);
-            
+
             if (randomValue <= item.percentage)
             {
                 GameObject enemy = Instantiate(item.enemy);
@@ -150,6 +153,12 @@ public class GameInstance : MonoBehaviour
     void EndGame()
     {
         Debug.Log("END GAME !");
+    }
+
+    public void UpdateScore(int points)
+    {
+        score+=points;
+        scoreText.text = score.ToString();
     }
 
 

@@ -91,7 +91,7 @@ public class EnemyController : MonoBehaviour, IHittableInterface
 
     void DestroyShip()
     {
-        // TODO Gestisci punti
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameInstance>().UpdateScore(1);
         Destroy(gameObject);
     }
 }
