@@ -388,6 +388,7 @@ MonoBehaviour:
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 0.75
     maxSpawnTime: 4
+  scoreText: {fileID: 1655680252}
 --- !u!4 &900478550
 Transform:
   m_ObjectHideFlags: 0
