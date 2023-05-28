@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHittableInterface
 {
     [Tooltip("Forza di propulsione"), Range(2, 20)]
     public float accelerationForce = 7f;
@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     Vector2 max;
 
     Vector2 residualVelocity;
+
+    public int life = 100;
+
 
 
     // Start is called before the first frame update
@@ -135,7 +138,7 @@ public class PlayerController : MonoBehaviour
     void Shoot()
     {
         // instanzio il proiettile
-        GameObject bullet1 = (GameObject)Instantiate(bullet);
+        GameObject bullet1 = Instantiate(bullet);
 
         // alterno il fuoco dalle due armi
         if (isRightWeapon)
@@ -148,5 +151,17 @@ public class PlayerController : MonoBehaviour
             bullet1.transform.position = leftWeapon.transform.position;
             isRightWeapon = true;
         }
+    }
+
+    public void DealDamage(int damage)
+    {
+        life -= damage;
+        if (life <= 0)
+            Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+
     }
 }

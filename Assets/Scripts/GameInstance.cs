@@ -19,6 +19,7 @@ public class GameInstance : MonoBehaviour
     {
         [Tooltip("Percentuale di spawn di ciascun nemico")]
         public EnemyType[] enemyTypes;
+        public float maxSpawnTime;
     }
 
     [Tooltip("Lista di nemici spawnabili per ciascun livello")]
@@ -32,23 +33,25 @@ public class GameInstance : MonoBehaviour
 
     EnemyType[] currentEnemyPercentage;
 
-    float difficultyTimer = 12f;
+    //float difficultyTimer = 12f;
 
     float extraMargin = 4f;
 
     float enemySize = 1f;
 
     float minSpawnTime = 2f;
-    float maxSpawnTime = 6f;
+
+    float maxSpawnTime ;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        SetSpanwPoints();
+        SetSpawnPoints();
 
         // imposto il livello di partenza 
         currentEnemyPercentage = levelDifficulties[0].enemyTypes;
+        maxSpawnTime = levelDifficulties[0].maxSpawnTime;
 
         // inizio lo spaw dei nemici
         StartCoroutine(CallSpawn(1f));
@@ -64,13 +67,13 @@ public class GameInstance : MonoBehaviour
         SpawnEnemy();
 
         // randomizzo il tempo di spawn succesivo
-        float newDelay = UnityEngine.Random.Range(minSpawnTime, maxSpawnTime);
+        float newDelay = UnityEngine.Random.Range(minSpawnTime,maxSpawnTime);
         yield return new WaitForSeconds(newDelay);
 
         StartCoroutine(CallSpawn(newDelay));
     }
 
-    private void SetSpanwPoints()
+    private void SetSpawnPoints()
     {
         // trovo positione alta destra e sinistra dello schermo
         Vector2 topRight = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
@@ -120,28 +123,19 @@ public class GameInstance : MonoBehaviour
 
     void SpawnEnemy()
     {
-        // calcolo somma delle probabilita
-        float probabilitySum = 0f;
+
         foreach (var item in currentEnemyPercentage)
         {
-            probabilitySum += item.percentage;
-        }
+            // genero un valore random
+            float randomValue = UnityEngine.Random.Range(0f, 1f);
 
-        // genero un valore random
-        float randomValue = UnityEngine.Random.Range(0f, probabilitySum);
-
-        // scelgo la posizione di spawn
-        int randomPosElem = UnityEngine.Random.Range(0, spawnPoints.Length);
-        Vector2 randomPosition = spawnPoints[randomPosElem] + new Vector2(UnityEngine.Random.Range(-extraMargin, extraMargin), 0);
-
-        // testo il set di nemici per identificare quello da spawnare
-        probabilitySum = 0f;
-        foreach (var item in currentEnemyPercentage)
-        {
-            probabilitySum += item.percentage;
-            if (randomValue <= probabilitySum)
+            // scelgo la posizione di spawn
+            int randomPosElem = UnityEngine.Random.Range(0, spawnPoints.Length);
+            Vector2 randomPosition = spawnPoints[randomPosElem] + new Vector2(UnityEngine.Random.Range(-extraMargin, extraMargin), 0);
+            
+            if (randomValue <= item.percentage)
             {
-                GameObject enemy = (GameObject)Instantiate(item.enemy);
+                GameObject enemy = Instantiate(item.enemy);
                 enemy.transform.position = randomPosition;
             }
 

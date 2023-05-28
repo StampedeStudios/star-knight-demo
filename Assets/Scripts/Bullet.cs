@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,14 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 12f;
+    public int damage = 12;
+
     Vector2 max;
     Vector2 min;
+
+    public string[] hittables;
+
+    public GameObject explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +36,22 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        foreach (var item in hittables)
+        {
+            if(other.gameObject.CompareTag(item))
+            {
+                GameObject explosionEvent = Instantiate(explosion);
+                explosionEvent.transform.position = transform.position;
+
+                IHittableInterface hittableInterface = other.collider.GetComponent<IHittableInterface>();
+                hittableInterface.DealDamage(damage);
+                
+                Destroy(gameObject);
+            }
+        }
     }
 }

@@ -168,15 +168,15 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.25
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -359,9 +359,11 @@ GameObject:
   - component: {fileID: 894082585}
   - component: {fileID: 894082584}
   - component: {fileID: 894082587}
-  m_Layer: 0
+  - component: {fileID: 894082589}
+  - component: {fileID: 894082590}
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Player
+  m_TagString: PlayerShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -383,6 +385,7 @@ MonoBehaviour:
   maxSpeed: 10
   extraMargin: {x: 1, y: 1}
   bullet: {fileID: 4265731537205179880, guid: b03ac7ad029e1f94da6bee1bc88ad374, type: 3}
+  life: 100
 --- !u!212 &894082585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -423,7 +426,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 468782685, guid: 061dd5011fa769146acafc263a9b21c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -443,7 +446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 894082583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -7.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -473,6 +476,43 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &894082589
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894082583}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.3}
+  serializedVersion: 2
+  m_Radius: 1
+--- !u!50 &894082590
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894082583}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &900478548
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,8 +544,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDifficulties:
   - enemyTypes:
+    - enemy: {fileID: 5846200306305751280, guid: fd62968a3d222874e89445a384263bcb, type: 3}
+      percentage: 0.054
+    - enemy: {fileID: 969086414217439044, guid: eb88b48967c61fe49b3addb9cb4adfee, type: 3}
+      percentage: 0.06
+    - enemy: {fileID: 6237353549136497810, guid: 88b88cd6c76074e4cb8fd450cd57b2d8, type: 3}
+      percentage: 0.068
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 0.546
+      percentage: 0.752
+    maxSpawnTime: 4
 --- !u!4 &900478550
 Transform:
   m_ObjectHideFlags: 0
@@ -513,7 +560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900478548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.24, y: -1.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -598,7 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1502179808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1915389331}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RightWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
