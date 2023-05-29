@@ -388,6 +388,7 @@ MonoBehaviour:
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 0.75
     maxSpawnTime: 4
+    goal: 0
   scoreText: {fileID: 1655680252}
 --- !u!4 &900478550
 Transform:
@@ -562,6 +563,14 @@ PrefabInstance:
     - target: {fileID: 7298318303997662003, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298318303997662012, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
+      propertyPath: frictionForce
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298318303997662012, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
+      propertyPath: accelerationForce
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7298318303997662014, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: m_RootOrder

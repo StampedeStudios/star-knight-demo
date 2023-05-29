@@ -157,11 +157,14 @@ public class PlayerController : MonoBehaviour, IHittableInterface
     {
         life -= damage;
         if (life <= 0)
-            Destroy(gameObject);
+        {
+            GetComponent<Animator>().SetBool("isDead", true);
+        }
+
     }
 
-    private void OnDestroy()
+    void DestroyShip()
     {
-
+        Destroy(gameObject);
     }
 }
