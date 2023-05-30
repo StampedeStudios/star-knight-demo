@@ -155,7 +155,7 @@ public class GameInstance : MonoBehaviour
         Debug.Log("END GAME !");
     }
 
-    public void UpdateScore(int points)
+    public void UpdateScore(int points, bool influeceLevel)
     {
         score+=points;
         scoreText.text = score.ToString();
