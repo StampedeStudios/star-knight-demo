@@ -96,6 +96,7 @@ public class EnemyController : MonoBehaviour, IHittableInterface
         if (life <= 0)
         {
             isDead = true;
+            CancelInvoke("Shoot");
             GetComponent<Animator>().SetBool("isDead", true);
         }
     }
