@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class AIPointer : MonoBehaviour
 {
-    [Tooltip("Velocita con la quale il possessore cerca di puntare il player"),Range(0.5f,5f)]
+    [Tooltip("Velocita con la quale il possessore cerca di puntare il player"), Range(0.5f, 5f)]
     public float pointerSpeed = 2f;
-    Quaternion statRotation;
+    Quaternion startRotation;
     GameObject player;
+    bool isGunActive;
 
 
     void Start()
@@ -13,8 +14,10 @@ public class AIPointer : MonoBehaviour
         //recupero la reference del player
         player = GameObject.FindGameObjectWithTag("PlayerShip");
 
+        isGunActive = player;
+
         // salvo la direzione di spawn
-        statRotation = transform.rotation;
+        startRotation = transform.rotation;
     }
 
     void Update()
@@ -32,6 +35,6 @@ public class AIPointer : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle, Vector3.forward), pointerSpeed * Time.deltaTime);
         }
         else
-            transform.rotation = Quaternion.Lerp(transform.rotation, statRotation, pointerSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, startRotation, pointerSpeed * Time.deltaTime);
     }
 }

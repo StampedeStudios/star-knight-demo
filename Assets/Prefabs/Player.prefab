@@ -254,10 +254,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4265731537205179880, guid: b03ac7ad029e1f94da6bee1bc88ad374, type: 3}
-  bulletPerSecond: 10
+  fireRate: 0.1
   weapon1: {fileID: 7298318303255133435}
   weapon2: {fileID: 7298318302812768438}
   isAsync: 1
+  autoFire: 0
 --- !u!114 &569772288
 MonoBehaviour:
   m_ObjectHideFlags: 0

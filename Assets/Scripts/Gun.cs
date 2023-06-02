@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Gun : MonoBehaviour, IGunInterface,IDeathIterface
+public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 {
     [Tooltip("Tipo di proiettile sparato")]
     public GameObject bullet;
 
-    [Tooltip("Quantita di proiettili sparati in un secondo"), Range(.1f, 10f)]
+    [Tooltip("Quantita di proiettili sparati in un secondo"), Range(.1f, 20f)]
     public float fireRate = 5;
 
     [Tooltip("Reference del componente dal quale recupero la posizione e la rotazione del proiettile")]
@@ -26,10 +26,14 @@ public class Gun : MonoBehaviour, IGunInterface,IDeathIterface
     }
 
     IShootType shootType;
+    GameObject player;
 
 
     private void Start()
     {
+        // ottengo riferimento al player
+        player = GameObject.FindGameObjectWithTag("PlayerShip");
+
         // seleziono il tipo di fuoco a seconda delle condizioni
         if (weapon1 & !weapon2)
             shootType = IShootType.Single;
@@ -49,29 +53,35 @@ public class Gun : MonoBehaviour, IGunInterface,IDeathIterface
 
     private IEnumerator Shoot()
     {
-        switch (shootType)
+        if (player)
         {
-            case IShootType.Single:
-                // colpo singolo 
-                Instantiate(bullet).transform.SetPositionAndRotation(weapon1.transform.position, weapon1.transform.rotation);
-                break;
+            switch (shootType)
+            {
+                case IShootType.Single:
+                    // colpo singolo 
+                    Instantiate(bullet).transform.SetPositionAndRotation(weapon1.transform.position, weapon1.transform.rotation);
+                    break;
 
-            case IShootType.Double:
-                // colpo doppio in conteporanea
-                Instantiate(bullet).transform.SetPositionAndRotation(weapon1.transform.position, weapon1.transform.rotation);
-                Instantiate(bullet).transform.SetPositionAndRotation(weapon2.transform.position, weapon2.transform.rotation);
-                break;
+                case IShootType.Double:
+                    // colpo doppio in conteporanea
+                    Instantiate(bullet).transform.SetPositionAndRotation(weapon1.transform.position, weapon1.transform.rotation);
+                    Instantiate(bullet).transform.SetPositionAndRotation(weapon2.transform.position, weapon2.transform.rotation);
+                    break;
 
-            case IShootType.Async:
-                // colpo doppio alternato
-                Transform weaponTransform = isFirst ? weapon1.transform : weapon2.transform;
-                Instantiate(bullet).transform.SetPositionAndRotation(weaponTransform.position, weaponTransform.rotation);
-                isFirst = !isFirst;
-                break;
+                case IShootType.Async:
+                    // colpo doppio alternato
+                    Transform weaponTransform = isFirst ? weapon1.transform : weapon2.transform;
+                    Instantiate(bullet).transform.SetPositionAndRotation(weaponTransform.position, weaponTransform.rotation);
+                    isFirst = !isFirst;
+                    break;
 
-            default: break;
+                default: break;
+            }
         }
-        yield return new WaitForSeconds(fireRate);
+        else
+            StopAllCoroutines();
+            
+        yield return new WaitForSeconds(1f / fireRate);
         StartCoroutine(Shoot());
     }
 
