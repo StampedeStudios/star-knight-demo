@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3430487430947307100}
   - component: {fileID: 3633035856251752735}
-  - component: {fileID: 3711556926212864963}
-  m_Layer: 6
+  - component: {fileID: 6741855069818659483}
+  - component: {fileID: 9085080150515730080}
+  - component: {fileID: 5510990334566450267}
+  m_Layer: 8
   m_Name: Satellite_V3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +87,44 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3711556926212864963
+--- !u!58 &6741855069818659483
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237353549136497810}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.3
+--- !u!50 &9085080150515730080
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237353549136497810}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &5510990334566450267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,7 +133,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6237353549136497810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f46665e7777dc854ea41f5c98c5eb7bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 547258d962b94084d84fdfd7f5e33345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  randomInCone: 45

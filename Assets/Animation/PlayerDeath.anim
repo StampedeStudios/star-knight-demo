@@ -88,9 +88,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.6666667
-    functionName: DestroyShip
+    functionName: DestroyGameObject
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 338e557348665c048ad2716371e0be6b, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 65c3ff4add0772a41bf5e2fd58b84d50, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

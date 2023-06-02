@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4265731537205179883}
   - component: {fileID: 7159439710060844784}
   - component: {fileID: -148475896377758457}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
@@ -100,8 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  hittables:
-  - EnemyShip
+  damage: 12
   explosion: {fileID: 924779611928828645, guid: 3f50fd1e6a57db14ea19eeb61319677b, type: 3}
 --- !u!70 &7159439710060844784
 CapsuleCollider2D:

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+public class EndAnimDestroyer : MonoBehaviour
 {
     void DestroyGameObject()
     {
