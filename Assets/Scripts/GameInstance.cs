@@ -11,8 +11,8 @@ public class GameInstance : MonoBehaviour
     {
         [Tooltip("Tipo di nemico")]
         public GameObject enemy;
-        [Tooltip("Percentuale di spawn"), Range(0, 1)]
-        public float percentage;
+        [Tooltip("Percentuale di spawn"), Range(0, 100)]
+        public int percentage;
     }
 
     [System.Serializable]
@@ -130,7 +130,7 @@ public class GameInstance : MonoBehaviour
         foreach (var item in currentEnemyPercentage)
         {
             // genero un valore random
-            float randomValue = UnityEngine.Random.Range(0f, 1f);
+            int randomValue = UnityEngine.Random.Range(0, 101);
 
             // scelgo la posizione di spawn
             int randomPosElem = UnityEngine.Random.Range(0, spawnPoints.Length);
