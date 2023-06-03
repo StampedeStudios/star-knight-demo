@@ -5,10 +5,20 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
     [Tooltip("Vita del possessore")]
     public int Health = 100;
 
+    private StatsHandler statsHandler = null;
+
+    private void Awake()
+    {
+        statsHandler = GetComponent<StatsHandler>();
+    }
+
     public void DealDamage(int damage)
     {
         // sottraggo il danno subito
         Health -= damage;
+
+        if (statsHandler)
+            statsHandler.UpdateHealth(Health);
 
         // controllo se la vita è finita
         if (Health <= 0)
@@ -22,7 +32,7 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
         {
             item.OnDeathEvent();
         }
-        
+
         // recupero l' animatore ed eseguo l' animazione dedicata 
         Animator anim = GetComponent<Animator>();
         if (anim)

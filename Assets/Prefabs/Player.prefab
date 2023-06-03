@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 569772288}
   - component: {fileID: 884690915847224537}
   - component: {fileID: 1474921786}
+  - component: {fileID: 1944337844}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -260,6 +261,9 @@ MonoBehaviour:
   weapon2: {fileID: 7298318302812768438}
   isAsync: 1
   autoFire: 0
+  hasReload: 1
+  reloadTime: 3
+  bulletPerClip: 100
 --- !u!114 &569772288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,3 +302,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 70
+--- !u!114 &1944337844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298318303997662003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c96aafca4422774985cde8427082628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
