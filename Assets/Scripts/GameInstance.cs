@@ -24,8 +24,6 @@ public class GameInstance : MonoBehaviour
 
     float maxSpawnTime;
 
-    public Text scoreText;
-
     int score = 0;
 
     public string jsonName = "test";
@@ -42,7 +40,6 @@ public class GameInstance : MonoBehaviour
         currentEnemyPercentage = levelDifficulties[0].enemyTypes;
         maxSpawnTime = levelDifficulties[0].maxSpawnTime;
 
-        scoreText.text = score.ToString();
         // inizio lo spaw dei nemici
         StartCoroutine(CallSpawn(1f));
 
@@ -142,7 +139,6 @@ public class GameInstance : MonoBehaviour
     public void UpdateScore(int points, bool influeceLevel)
     {
         score += points;
-        scoreText.text = score.ToString();
     }
 
 

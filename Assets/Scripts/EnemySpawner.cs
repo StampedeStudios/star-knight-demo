@@ -1,26 +1,66 @@
+using System.Linq;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    Vector2 center;
-    Vector2 size;
+    [Tooltip("Nome del file dal quale caricare il Level Difficulties")]
+    public string jsonName = "test";
+
+    LevelDifficulty[] levelDifficulties;
+    EnemyType[] currentEnemyPercentage;
+    float spawnLenght;
+    private float minSpawnTime;
+    private float maxSpawnTime;
 
     private void Awake()
     {
-        center = GetComponent<BoxCollider2D>().size;
+        spawnLenght = GetComponent<BoxCollider2D>().size.x;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
+        StartEnemySpawning();// Usato per spawnare nemici in fase di test
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartEnemySpawning()
     {
+        if (jsonName == null)
+            Debug.LogError("Nome file JSON non valido!");
+        else
+        {
+            levelDifficulties = LevelData.DecriptData(jsonName).ToArray();
+            if (levelDifficulties == null)
+                Debug.LogError("File JSON non trovato!");
+            else
+                StartCoroutine(CallSpawn());
 
+
+        }
+    }
+
+    IEnumerator CallSpawn()
+    {
+        // eseguo il primo spawn dopo il delay
+        SpawnEnemy();
+
+        // randomizzo il tempo di spawn succesivo
+        float newDelay = UnityEngine.Random.Range(minSpawnTime, maxSpawnTime);
+        yield return new WaitForSeconds(newDelay);
+
+        StartCoroutine(CallSpawn());
+    }
+
+    private void SpawnEnemy()
+    {
+        foreach (var item in currentEnemyPercentage)
+        {
+            if (0.1f <= item.percentage)
+            {
+                GameObject enemy = Instantiate(item.enemy);
+            }
+
+        }
     }
 }

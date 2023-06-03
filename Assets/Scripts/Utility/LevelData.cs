@@ -80,54 +80,65 @@ public class LevelData : MonoBehaviour
     public static LevelDifficulty[] DecriptData(string jsonName)
     {
         string filePath = ROOT_FILE_PATH + jsonName;
-        string json = File.ReadAllText(filePath);
-        Container newcontainer = JsonUtility.FromJson<Container>(json);
-
-        List<LevelDifficulty> newLevelDifficulties = new List<LevelDifficulty>();
-        foreach (var dataItem in newcontainer.levelDifficulties)
+        if (File.Exists(filePath))
         {
-            List<EnemyType> newEnemyTypes = new List<EnemyType>();
-            foreach (var item in dataItem.enemyTypes)
+            string json = File.ReadAllText(filePath);
+            Container newcontainer = JsonUtility.FromJson<Container>(json);
+
+            List<LevelDifficulty> newLevelDifficulties = new List<LevelDifficulty>();
+            foreach (var dataItem in newcontainer.levelDifficulties)
             {
-                GameObject newobj = AssetDatabase.LoadAssetAtPath<GameObject>(item.objPath);
-                int newPercentage = item.percentage;
-                EnemyType newEnemyType = new EnemyType(newobj, newPercentage);
-                newEnemyTypes.Add(newEnemyType);
+                List<EnemyType> newEnemyTypes = new List<EnemyType>();
+                foreach (var item in dataItem.enemyTypes)
+                {
+                    GameObject newobj = AssetDatabase.LoadAssetAtPath<GameObject>(item.objPath);
+                    int newPercentage = item.percentage;
+                    EnemyType newEnemyType = new EnemyType(newobj, newPercentage);
+                    newEnemyTypes.Add(newEnemyType);
+                }
+                float newMaxSpawnTime = dataItem.maxSpawnTime;
+                int newLevelGoal = dataItem.levelGoal;
+
+                newLevelDifficulties.Add(new LevelDifficulty(newEnemyTypes, newMaxSpawnTime, newLevelGoal));
             }
-            float newMaxSpawnTime = dataItem.maxSpawnTime;
-            int newLevelGoal = dataItem.levelGoal;
 
-            newLevelDifficulties.Add(new LevelDifficulty(newEnemyTypes, newMaxSpawnTime, newLevelGoal));
+            return newLevelDifficulties.ToArray();
         }
-
-        return newLevelDifficulties.ToArray();
+        else
+            return null;
     }
 
     public static void EncriptData(LevelDifficulty[] data, string jsonName)
     {
-        List<EncriptLevelDifficulty> newLevelDifficulties = new List<EncriptLevelDifficulty>();
-        foreach (var dataItem in data)
+        if (jsonName != null)
+            Debug.LogError("Nome file JSON non valido!");
+        else
         {
-            List<EncripEnemyType> newEnemyTypes = new List<EncripEnemyType>();
-            foreach (var item in dataItem.enemyTypes)
+            List<EncriptLevelDifficulty> newLevelDifficulties = new List<EncriptLevelDifficulty>();
+
+            foreach (var dataItem in data)
             {
-                string newPath = AssetDatabase.GetAssetPath(item.enemy);
-                int newPercentage = item.percentage;
-                EncripEnemyType newEnemyType = new EncripEnemyType(newPath, newPercentage);
-                newEnemyTypes.Add(newEnemyType);
+                List<EncripEnemyType> newEnemyTypes = new List<EncripEnemyType>();
+
+                foreach (var item in dataItem.enemyTypes)
+                {
+                    string newPath = AssetDatabase.GetAssetPath(item.enemy);
+                    int newPercentage = item.percentage;
+                    EncripEnemyType newEnemyType = new EncripEnemyType(newPath, newPercentage);
+                    newEnemyTypes.Add(newEnemyType);
+                }
+                float newMaxSpawnTime = dataItem.maxSpawnTime;
+                int newLevelGoal = dataItem.levelGoal;
+
+                newLevelDifficulties.Add(new EncriptLevelDifficulty(newEnemyTypes, newMaxSpawnTime, newLevelGoal));
             }
-            float newMaxSpawnTime = dataItem.maxSpawnTime;
-            int newLevelGoal = dataItem.levelGoal;
 
-            newLevelDifficulties.Add(new EncriptLevelDifficulty(newEnemyTypes, newMaxSpawnTime, newLevelGoal));
+            Container newContainer = new Container(newLevelDifficulties);
+
+            string json = JsonUtility.ToJson(newContainer);
+            string filePath = ROOT_FILE_PATH + jsonName;
+            File.WriteAllText(filePath, json);
         }
-
-        Container newContainer = new Container(newLevelDifficulties);
-
-
-        string json = JsonUtility.ToJson(newContainer);
-        string filePath = ROOT_FILE_PATH + jsonName;
-        File.WriteAllText(filePath, json);
     }
 
 }
