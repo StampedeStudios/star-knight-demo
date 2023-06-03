@@ -12,7 +12,7 @@ public class AIPointer : MonoBehaviour
     void Start()
     {
         //recupero la reference del player
-        player = GameObject.FindGameObjectWithTag("PlayerShip");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         isGunActive = player;
 

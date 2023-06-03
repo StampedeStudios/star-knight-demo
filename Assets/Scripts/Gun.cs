@@ -32,7 +32,7 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
     private void Start()
     {
         // ottengo riferimento al player
-        player = GameObject.FindGameObjectWithTag("PlayerShip");
+        player = GameObject.FindGameObjectWithTag("Player");
 
         // seleziono il tipo di fuoco a seconda delle condizioni
         if (weapon1 & !weapon2)

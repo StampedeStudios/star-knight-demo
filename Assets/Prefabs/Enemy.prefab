@@ -49,9 +49,10 @@ GameObject:
   - component: {fileID: 630335218}
   - component: {fileID: 1603530825}
   - component: {fileID: 8278183736026564064}
+  - component: {fileID: 2900763625027739633}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: EnemyShip
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,3 +263,16 @@ MonoBehaviour:
   weapon2: {fileID: 0}
   isAsync: 0
   autoFire: 1
+--- !u!114 &2900763625027739633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049213321814998754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ccf18ecbd496248800665ce9146b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25

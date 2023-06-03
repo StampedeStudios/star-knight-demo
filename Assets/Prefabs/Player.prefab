@@ -80,6 +80,7 @@ GameObject:
   - component: {fileID: 569772280}
   - component: {fileID: 569772288}
   - component: {fileID: 884690915847224537}
+  - component: {fileID: 1474921786}
   m_Layer: 6
   m_Name: Player
   m_TagString: PlayerShip
@@ -254,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4265731537205179880, guid: b03ac7ad029e1f94da6bee1bc88ad374, type: 3}
-  fireRate: 0.1
+  fireRate: 10
   weapon1: {fileID: 7298318303255133435}
   weapon2: {fileID: 7298318302812768438}
   isAsync: 1
@@ -284,3 +285,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c3ff4add0772a41bf5e2fd58b84d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1474921786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298318303997662003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ccf18ecbd496248800665ce9146b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 70

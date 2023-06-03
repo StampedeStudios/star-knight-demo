@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6329620998742266938}
   m_Layer: 10
   m_Name: EnemyBullet
-  m_TagString: EnemyBullet
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,9 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   damage: 10
-  hittables:
-  - EnemyShip
-  - PlayerShip
   explosion: {fileID: 924779611928828645, guid: 3f50fd1e6a57db14ea19eeb61319677b, type: 3}
 --- !u!58 &8719166851966676635
 CircleCollider2D:
