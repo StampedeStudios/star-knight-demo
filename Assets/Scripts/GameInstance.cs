@@ -6,26 +6,7 @@ using UnityEngine.UI;
 
 public class GameInstance : MonoBehaviour
 {
-    [System.Serializable]
-    public struct EnemyType
-    {
-        [Tooltip("Tipo di nemico")]
-        public GameObject enemy;
-        [Tooltip("Percentuale di spawn"), Range(0, 100)]
-        public int percentage;
-    }
-
-    [System.Serializable]
-    public struct LevelDifficulty
-    {
-        [Tooltip("Percentuale di spawn di ciascun nemico")]
-        public EnemyType[] enemyTypes;
-        public float maxSpawnTime;
-        public int goal;
-    }
-
-    [Tooltip("Lista di nemici spawnabili per ciascun livello")]
-    public LevelDifficulty[] levelDifficulties;
+    LevelDifficulty[] levelDifficulties;
 
     int currentLevel = 1;
 
@@ -47,11 +28,14 @@ public class GameInstance : MonoBehaviour
 
     int score = 0;
 
+    public string jsonName = "test";
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        levelDifficulties = LevelData.DecriptData(jsonName);
         SetSpawnPoints();
 
         // imposto il livello di partenza 
@@ -157,7 +141,7 @@ public class GameInstance : MonoBehaviour
 
     public void UpdateScore(int points, bool influeceLevel)
     {
-        score+=points;
+        score += points;
         scoreText.text = score.ToString();
     }
 

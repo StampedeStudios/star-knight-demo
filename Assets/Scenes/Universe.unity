@@ -123,6 +123,77 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &175164060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175164063}
+  - component: {fileID: 175164062}
+  - component: {fileID: 175164061}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &175164061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349d708abd470bd4a8cd2881e4d6bf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &175164062
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164060}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &175164063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175164060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &435071059
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,19 +609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27da1daf13fa914da1f6b49d1322a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDifficulties:
-  - enemyTypes:
-    - enemy: {fileID: 5846200306305751280, guid: fd62968a3d222874e89445a384263bcb, type: 3}
-      percentage: 5
-    - enemy: {fileID: 969086414217439044, guid: eb88b48967c61fe49b3addb9cb4adfee, type: 3}
-      percentage: 5
-    - enemy: {fileID: 6237353549136497810, guid: 88b88cd6c76074e4cb8fd450cd57b2d8, type: 3}
-      percentage: 5
-    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 75
-    maxSpawnTime: 4
-    goal: 0
   scoreText: {fileID: 1655680252}
+  jsonName: test
 --- !u!4 &900478550
 Transform:
   m_ObjectHideFlags: 0
@@ -714,6 +774,59 @@ RectTransform:
   m_AnchoredPosition: {x: 249, y: 334.8}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2057057879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057057881}
+  - component: {fileID: 2057057882}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2057057881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057057879}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.675903, y: -0.28364104, z: -0.1383614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2057057882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057057879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ca666f017e7774da08818b82608b9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelDifficulties:
+  - enemyTypes:
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    maxSpawnTime: 1
+    levelGoal: 99999
+  jsonName: test
 --- !u!1001 &5039457730892557042
 PrefabInstance:
   m_ObjectHideFlags: 0
