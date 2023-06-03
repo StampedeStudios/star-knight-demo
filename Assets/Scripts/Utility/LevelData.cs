@@ -11,7 +11,7 @@ public struct EnemyType
     [Tooltip("Percentuale di spawn"), Range(0, 100)]
     public int percentage;
 
-    public EnemyType(GameObject newobj, int newPercentage) 
+    public EnemyType(GameObject newobj, int newPercentage)
     {
         this.enemy = newobj;
         this.percentage = newPercentage;
@@ -75,9 +75,11 @@ public class LevelData : MonoBehaviour
         }
     }
 
+    private static string ROOT_FILE_PATH = "Assets/Scripts/Utility/";
+
     public static LevelDifficulty[] DecriptData(string jsonName)
     {
-        string filePath = "C:/Unity Project/Test2D/Assets/Scripts/Utility/" + jsonName;
+        string filePath = ROOT_FILE_PATH + jsonName;
         string json = File.ReadAllText(filePath);
         Container newcontainer = JsonUtility.FromJson<Container>(json);
 
@@ -124,7 +126,7 @@ public class LevelData : MonoBehaviour
 
 
         string json = JsonUtility.ToJson(newContainer);
-        string filePath = "C:/Unity Project/Test2D/Assets/Scripts/Utility/" + jsonName;
+        string filePath = ROOT_FILE_PATH + jsonName;
         File.WriteAllText(filePath, json);
     }
 
