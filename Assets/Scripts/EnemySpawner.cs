@@ -1,7 +1,6 @@
-using System.Linq;
-using System;
 using System.Collections;
 using UnityEngine;
+
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,13 +9,16 @@ public class EnemySpawner : MonoBehaviour
 
     LevelDifficulty[] levelDifficulties;
     EnemyType[] currentEnemyPercentage;
+
     float spawnLenght;
-    private float minSpawnTime;
     private float maxSpawnTime;
+
+    private GameObject player;
 
     private void Awake()
     {
-        spawnLenght = GetComponent<BoxCollider2D>().size.x;
+        // calcolo la metà dell area di spawn
+        spawnLenght = GetComponent<BoxCollider2D>().size.x / 2;
     }
 
     private void Start()
@@ -26,41 +28,71 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartEnemySpawning()
     {
-        if (jsonName == null)
-            Debug.LogError("Nome file JSON non valido!");
-        else
-        {
-            levelDifficulties = LevelData.DecriptData(jsonName).ToArray();
-            if (levelDifficulties == null)
-                Debug.LogError("File JSON non trovato!");
-            else
-                StartCoroutine(CallSpawn());
+        // recupero i dati dal JSON
+        levelDifficulties = LevelData.DecriptData(jsonName);
+        if (levelDifficulties == null | levelDifficulties.Length == 0)
+            return;
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (!player)
+            return;
 
-        }
+        IncreaseDifficulty(0);
+
+        StartCoroutine(CallSpawn());
+
+    }
+
+    public void IncreaseDifficulty(int newLevel)
+    {
+        // incremento la difficolta
+        maxSpawnTime = levelDifficulties[newLevel].maxSpawnTime;
+        currentEnemyPercentage = levelDifficulties[newLevel].enemyTypes;
     }
 
     IEnumerator CallSpawn()
     {
-        // eseguo il primo spawn dopo il delay
+        // fermo lo spawn dei nemici in caso di morte del player
+        if (!player)
+            StopAllCoroutines();
+
+        // eseguo lo spawn dei nemici
         SpawnEnemy();
 
-        // randomizzo il tempo di spawn succesivo
-        float newDelay = UnityEngine.Random.Range(minSpawnTime, maxSpawnTime);
+        // randomizzo il tempo di attesa per lo spawn succesivo
+        float newDelay = UnityEngine.Random.Range(1f, maxSpawnTime);
         yield return new WaitForSeconds(newDelay);
 
+        // richiamo la funzione dopo l' attesa
         StartCoroutine(CallSpawn());
     }
 
     private void SpawnEnemy()
     {
+        // per ciascun nemico contenuto nell array calcolo la probabilita di spawnarlo
         foreach (var item in currentEnemyPercentage)
         {
-            if (0.1f <= item.percentage)
-            {
-                GameObject enemy = Instantiate(item.enemy);
-            }
+            // genero un valore random
+            int randomValue = UnityEngine.Random.Range(0, 101);
 
+            // se la probabilita è verificata eseguo lo spawn
+            if (randomValue <= item.percentage)
+            {
+                Vector2 pos = GetRandomPosition();
+                if (!item.enemy)
+                    return;
+                GameObject enemy = Instantiate(item.enemy, pos, Quaternion.identity);
+            }
         }
     }
+
+    private Vector2 GetRandomPosition()
+    {
+        // restituisco una posizione random all' interno del range calcolato precedentemente
+        float randomPos = UnityEngine.Random.Range(-spawnLenght, spawnLenght);
+        Vector2 pos = transform.position;
+        pos += new Vector2(randomPos, 0);
+        return pos;
+    }
+
 }

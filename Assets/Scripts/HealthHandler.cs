@@ -17,10 +17,12 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
 
     private void Die()
     {
+        // comunico lo stato di morte su tutti i componenti del possesore
         foreach (var item in GetComponents<IDeathIterface>())
         {
             item.OnDeathEvent();
         }
+        
         // recupero l' animatore ed eseguo l' animazione dedicata 
         Animator anim = GetComponent<Animator>();
         if (anim)

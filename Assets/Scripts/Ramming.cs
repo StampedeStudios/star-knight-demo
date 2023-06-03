@@ -7,6 +7,7 @@ public class Ramming : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        // se impatto con ogetti dannegiabili infliggo il danno definito
         IHittableInterface damageInterface = other.gameObject.GetComponent<IHittableInterface>();
         if (damageInterface != null)
             damageInterface.DealDamage(damage);

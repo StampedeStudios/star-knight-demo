@@ -8,8 +8,6 @@ public class CreateJson : MonoBehaviour
 
     public void CreateJsonFile()
     {
-        LevelData.EncriptData(levelDifficulties,jsonName);
+        LevelData.EncriptData(levelDifficulties, jsonName);
     }
-
-    
 }
