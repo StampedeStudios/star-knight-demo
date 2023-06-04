@@ -5,7 +5,13 @@
             <ui:VisualElement name="GameTitle" style="background-image: url(&apos;project://database/Assets/Sprites/Title.png?fileID=2800000&amp;guid=2211b2b8b0de9b743b415101e759e0c9&amp;type=3#Title&apos;); width: 384px; height: 384px;" />
             <ui:Button text="Start" display-tooltip-when-elided="true" name="StartButton" class="menu-button" />
             <ui:Button text="Commands" display-tooltip-when-elided="true" name="CommandButton" class="menu-button" />
+            <ui:Button text="Credits" display-tooltip-when-elided="true" name="CreditsButton" class="menu-button" />
             <ui:Button text="Exit" display-tooltip-when-elided="true" name="ExitButton" class="menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="CommandsWindow" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.1); align-items: center; justify-content: center; visibility: hidden;">
+        <ui:VisualElement name="Content" style="height: 80%; width: 80%;">
+            <ui:Label text="Commands" display-tooltip-when-elided="true" name="CommandLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 30px; -unity-text-align: upper-center;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
