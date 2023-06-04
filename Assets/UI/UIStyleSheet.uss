@@ -1,18 +1,196 @@
 .health-bar {
-    flex-direction: column; 
-    align-items: stretch; 
-    translate: 0 0; 
-    border-color: #0F3DA8;
+    flex-direction: column;
+    align-items: stretch;
+    translate: 0 0;
+    border-color: rgb(15, 61, 168);
     border-radius: 2px;
     rotate: -90deg;
 }
 
 .health-bar .unity-progress-bar__container {
     border-width: 2px;
-    border-color: #0F3DA8;
+    border-color: rgb(15, 61, 168);
     border-radius: 2px;
 }
 
 .health-bar .unity-progress-bar__progress {
-    background-color: #151A91;
+    background-color: rgb(21, 26, 145);
+}
+
+.score-panel {
+    flex-direction: row-reverse;
+    width: 20%;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    margin-bottom: 3%;
+    height: auto;
+}
+
+.score-counter {
+    width: auto;
+    transform-origin: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.score-image {
+    background-image: url('project://database/Assets/Sprites/Enemy.png?fileID=-1723847403&guid=c111bfb38b6f87341876f7d7004cdb45&type=3#Enemy_4');
+    -unity-background-scale-mode: scale-and-crop;
+    width: 50px;
+    height: 80px;
+}
+
+.score-text {
+    font-size: 26px;
+    -unity-text-align: middle-center;
+    -unity-font: url('project://database/Assets/UI/Fonts/Micro.ttf?fileID=12800000&guid=276773b3b2f82564f9b39ee63c97642a&type=3#Micro');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    letter-spacing: 5px;
+    text-shadow: 2px 0 0 rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    width: auto;
+}
+
+.health-image {
+    background-image: url('project://database/Assets/Sprites/Shield.png?fileID=2800000&guid=60ab76c9f385d994e97ec5480f177f14&type=3#Shield');
+    -unity-background-scale-mode: scale-to-fit;
+    width: 100%;
+    height: 90%;
+    align-items: stretch;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 4px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+
+.health-label {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    height: 10%;
+    -unity-text-align: upper-center;
+    color: rgb(255, 255, 255);
+    letter-spacing: 3px;
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.ammo-image {
+    background-image: url('project://database/Assets/Sprites/Ammo.png?fileID=2800000&guid=bdc0531b5079a83428b692f4d8e6c2e9&type=3#Ammo');
+    -unity-background-scale-mode: scale-to-fit;
+    width: 80px;
+    height: 50px;
+    align-items: stretch;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.ammo-left-label {
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    -unity-text-align: middle-left;
+    -unity-font: url('project://database/Assets/UI/Fonts/Micro.ttf?fileID=12800000&guid=276773b3b2f82564f9b39ee63c97642a&type=3#Micro');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    letter-spacing: 5px;
+    text-shadow: 2px 0 0 rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-left: 0;
+    height: 38px;
+    margin-bottom: -15px;
+}
+
+.clip-size-label {
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    -unity-text-align: middle-left;
+    -unity-font: url('project://database/Assets/UI/Fonts/Micro.ttf?fileID=12800000&guid=276773b3b2f82564f9b39ee63c97642a&type=3#Micro');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    letter-spacing: 5px;
+    text-shadow: 2px 0 0 rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    margin-left: 0;
+    height: 76px;
+}
+
+.ammo-label {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    height: 10%;
+    -unity-text-align: upper-right;
+    color: rgb(255, 255, 255);
+    letter-spacing: 3px;
+    width: 118px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    white-space: nowrap;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.bottom-section {
+    height: 30%;
+    flex-direction: row;
+    justify-content: space-between;
+    border-left-color: rgb(11, 255, 0);
+    border-right-color: rgb(11, 255, 0);
+    border-top-color: rgb(11, 255, 0);
+    border-bottom-color: rgb(11, 255, 0);
+    max-width: 90%;
+    align-items: center;
+    width: 90%;
+}
+
+.reloading-label {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    height: 10%;
+    -unity-text-align: upper-right;
+    color: rgb(255, 255, 255);
+    letter-spacing: 3px;
+    width: 118px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 2px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+}
+
+.top-bar {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-left-color: rgb(11, 255, 0);
+    border-right-color: rgb(11, 255, 0);
+    border-top-color: rgb(11, 255, 0);
+    border-bottom-color: rgb(11, 255, 0);
+    max-width: 90%;
+    align-items: center;
+    width: 90%;
 }
