@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=b90ca75361d88b84a9d47eeb96726636&amp;type=3#MenuStyleSheet" />
+    <ui:VisualElement name="Container" style="height: 100%; width: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.1);">
+        <ui:VisualElement name="MainDiv" style="height: 100%; width: auto; min-width: 300px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+            <ui:VisualElement name="GameTitle" style="background-image: url(&apos;project://database/Assets/Sprites/Title.png?fileID=2800000&amp;guid=2211b2b8b0de9b743b415101e759e0c9&amp;type=3#Title&apos;); width: 384px; height: 384px;" />
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="StartButton" class="menu-button" />
+            <ui:Button text="Commands" display-tooltip-when-elided="true" name="CommandButton" class="menu-button" />
+            <ui:Button text="Exit" display-tooltip-when-elided="true" name="ExitButton" class="menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

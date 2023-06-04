@@ -1,0 +1,27 @@
+.menu-button {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-text-align: upper-center;
+    text-shadow: 2px 0 0 rgb(0, 0, 0);
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgb(255, 255, 255);
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu-button:hover {
+	background-color: #3a7999;
+	border-color: #f2f2f2;
+	padding: 10px;
+	font-size: 18px;
+	border-radius: 5px;
+	position: relative;
+	transition: all 500ms ease; 
+
+}
+
+.menu-button:active {
+    background-color: rgba(0, 0, 0, 0.25);
+}
