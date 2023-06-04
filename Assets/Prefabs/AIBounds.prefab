@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5039457731260771574}
   - component: {fileID: 5039457731260771569}
-  - component: {fileID: 5039457731260771575}
+  - component: {fileID: 1309387397}
   m_Layer: 0
-  m_Name: ObjectDestroyer
+  m_Name: AIBounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,9 +57,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 23, y: 25}
+  m_Size: {x: 35.5, y: 20}
   m_EdgeRadius: 0
---- !u!114 &5039457731260771575
+--- !u!114 &1309387397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,6 +68,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5039457731260771568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a8eeb766555e140a291d225fb1eba0, type: 3}
+  m_Script: {fileID: 11500000, guid: d9fa6e1025c8c864e980a592da9d255e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
