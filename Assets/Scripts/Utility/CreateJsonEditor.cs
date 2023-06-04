@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEditor;
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(CreateJson))]
 public class CreateJsonEditor : Editor
 {
@@ -9,11 +9,18 @@ public class CreateJsonEditor : Editor
         base.OnInspectorGUI();
 
         CreateJson script = (CreateJson)target;
-        
-        if (GUILayout.Button("Genera Json"))
+
+        if (GUILayout.Button("Genera JSON"))
         {
             script.CreateJsonFile();
         }
+
+        if (GUILayout.Button("Popola JSON"))
+        {
+            script.PopulateEnemySpawner();
+        }
+
     }
 }
 
+#endif

@@ -36,7 +36,7 @@ public struct LevelDifficulty
         this.levelGoal = newLevelGoal;
     }
 }
-
+#if UNITY_EDITOR
 [System.Serializable]
 public class LevelData : MonoBehaviour
 {
@@ -183,7 +183,7 @@ public class LevelData : MonoBehaviour
         Container newContainer = new Container(newLevelDifficulties);
 
         string filePath = ROOT_FILE_PATH + jsonName;
-        
+
         // controllo se esiste gia un file con lo stesso nome
         if (File.Exists(filePath))
 
@@ -194,3 +194,4 @@ public class LevelData : MonoBehaviour
         File.WriteAllText(filePath, json);
     }
 }
+#endif

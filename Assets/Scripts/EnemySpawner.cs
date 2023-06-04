@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Tooltip("Nome del file dal quale caricare il Level Difficulties")]
-    public string jsonName = "test";
-
-    LevelDifficulty[] levelDifficulties;
+    public LevelDifficulty[] levelDifficulties;
     EnemyType[] currentEnemyPercentage;
 
     float spawnLenght;
@@ -28,19 +25,15 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartEnemySpawning()
     {
-        // recupero i dati dal JSON
-        levelDifficulties = LevelData.DecriptData(jsonName);
-        if (levelDifficulties == null | levelDifficulties.Length == 0)
-            return;
-
         player = GameObject.FindGameObjectWithTag("Player");
         if (!player)
             return;
 
-        IncreaseDifficulty(0);
-
-        StartCoroutine(CallSpawn());
-
+        if (levelDifficulties != null & levelDifficulties.Length > 0)
+        {
+            IncreaseDifficulty(0);
+            StartCoroutine(CallSpawn());
+        }
     }
 
     public void IncreaseDifficulty(int newLevel)

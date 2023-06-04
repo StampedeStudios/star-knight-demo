@@ -153,7 +153,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349d708abd470bd4a8cd2881e4d6bf49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonName: test
+  levelDifficulties:
+  - enemyTypes:
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    maxSpawnTime: 1
+    levelGoal: 9999
 --- !u!61 &175164062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -789,7 +796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: jsonName
-      value: fsafs
+      value: test
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.size
@@ -797,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].levelGoal
-      value: 0
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[1].levelGoal
@@ -805,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].maxSpawnTime
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[1].maxSpawnTime
@@ -813,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[1].enemyTypes.Array.size
@@ -822,14 +829,22 @@ PrefabInstance:
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.data[0].enemy
       value: 
-      objectReference: {fileID: 377939962}
+      objectReference: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+    - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
+      propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.data[1].enemy
+      value: 
+      objectReference: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[1].enemyTypes.Array.data[0].enemy
       value: 
       objectReference: {fileID: 377939962}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.data[0].percentage
-      value: 15
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
+      propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.data[1].percentage
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[1].enemyTypes.Array.data[0].percentage

@@ -1,1 +1,1 @@
-{"levelDifficulties":[{"enemyTypes":[{"objPath":"Assets/Prefabs/Enemy.prefab","percentage":100},{"objPath":"Assets/Prefabs/Enemy.prefab","percentage":100}],"maxSpawnTime":1.0,"levelGoal":99999}]}
+{"levelDifficulties":[{"enemyTypes":[{"objPath":"Assets/Prefabs/Enemy.prefab","percentage":100},{"objPath":"Assets/Prefabs/Enemy.prefab","percentage":100}],"maxSpawnTime":1.0,"levelGoal":9999}]}
