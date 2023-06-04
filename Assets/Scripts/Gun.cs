@@ -50,6 +50,7 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private void Start()
     {
+        // aggiorno l' UI con i valori corretti dell' arma
         if (statsHandler)
             statsHandler.SetupAmmo(ammoLeft, bulletPerClip);
 
@@ -75,9 +76,11 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private IEnumerator Shoot()
     {
+        // stoppo il fuoco di qualsiasi arma quando il player è morto
         if (!player)
             StopAllCoroutines();
 
+        // attivo e disattivo il fuoco a seconda dello stato di ricarica
         if (!isReloading)
         {
             switch (shootType)
@@ -107,27 +110,37 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
             }
         }
 
+        // aggiorno l' UI con le munizioni rimaste
         if (statsHandler)
             statsHandler.UpdateAmmo(ammoLeft);
 
+        // se la ricarica è attiva e finisco le munizioni la attivo
         if (hasReload & ammoLeft <= 0)
-        {
             StartCoroutine(HandleReload());
-        }
+
         yield return new WaitForSeconds(1f / fireRate);
         shootCoorutine = StartCoroutine(Shoot());
     }
 
     private IEnumerator HandleReload()
     {
+        // fermo il fuoco
         StopShoot();
+
+        // inizio la ricarica
         isReloading = true;
         statsHandler.SetIsReloading(isReloading);
         yield return new WaitForSeconds(reloadTime);
+
+        // ripristino le munizioni massime
         ammoLeft = bulletPerClip;
         statsHandler.UpdateAmmo(ammoLeft);
+
+        // interrompo la ricarica
         isReloading = false;
         statsHandler.SetIsReloading(isReloading);
+        if (autoFire)
+            StartShoot();
     }
 
     public void StartShoot()
@@ -145,5 +158,11 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
     {
         StopShoot();
         this.enabled = false;
+    }
+
+    public void StartReleoading()
+    {
+        if (hasReload & ammoLeft < bulletPerClip)
+            StartCoroutine(HandleReload());
     }
 }

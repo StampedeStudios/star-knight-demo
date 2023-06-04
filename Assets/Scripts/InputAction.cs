@@ -4,7 +4,7 @@ public class InputAction : MonoBehaviour
 {
     private void Update()
     {
-        // premo spazio
+        // premo il tasto SPAZIO
         if (Input.GetKeyDown("space"))
         {
             foreach (var item in GetComponents<IGunInterface>())
@@ -13,7 +13,7 @@ public class InputAction : MonoBehaviour
             }
         };
 
-        // rilascio spazio
+        // rilascio il tasto SPAZIO
         if (Input.GetKeyUp("space"))
         {
             foreach (var item in GetComponents<IGunInterface>())
@@ -21,5 +21,14 @@ public class InputAction : MonoBehaviour
                 item.StopShoot();
             }
         };
+
+        // premo il tasto R
+        if (Input.GetKeyDown("r"))
+        {
+            foreach (var item in GetComponents<IGunInterface>())
+            {
+                item.StartReleoading();
+            }
+        }
     }
 }
