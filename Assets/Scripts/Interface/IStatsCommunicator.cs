@@ -5,4 +5,6 @@ public interface IStatsCommunicator
     public void UpdateAmmo(int ammo);
 
     public void UpdateScore(int score);
+
+    public int GetScore();
 }

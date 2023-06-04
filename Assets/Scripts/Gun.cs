@@ -39,6 +39,7 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
         Single, Double, Async
     }
 
+    Coroutine shootCoorutine;
     IShootType shootType;
     GameObject player;
 
@@ -71,7 +72,10 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private IEnumerator Shoot()
     {
-        if (player & !isReloading)
+        if (!player)
+            StopAllCoroutines();
+
+        if (!isReloading)
         {
             switch (shootType)
             {
@@ -98,23 +102,22 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
                 default: break;
             }
-
-            if (statsHandler)
-                statsHandler.UpdateAmmo(ammoLeft);
         }
-        else
-            StopAllCoroutines();
+
+        if (statsHandler)
+            statsHandler.UpdateAmmo(ammoLeft);
 
         if (hasReload & ammoLeft <= 0)
         {
             StartCoroutine(HandleReload());
         }
         yield return new WaitForSeconds(1f / fireRate);
-        StartCoroutine(Shoot());
+        shootCoorutine = StartCoroutine(Shoot());
     }
 
     private IEnumerator HandleReload()
     {
+        StopShoot();
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         ammoLeft = bulletPerClip;
@@ -124,12 +127,13 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     public void StartShoot()
     {
-        StartCoroutine(Shoot());
+        shootCoorutine = StartCoroutine(Shoot());
     }
 
     public void StopShoot()
     {
-        StopAllCoroutines();
+        if (shootCoorutine != null)
+            StopCoroutine(shootCoorutine);
     }
 
     public void OnDeathEvent()

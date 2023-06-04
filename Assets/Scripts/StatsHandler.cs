@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StatsHandler : MonoBehaviour
@@ -20,10 +18,5 @@ public class StatsHandler : MonoBehaviour
     public void UpdateHealth(int health)
     {
         gameUI.GetComponent<UILogic>().UpdateHealth(health);
-    }
-
-    public void UpdateScore(int score)
-    {
-        gameUI.GetComponent<UILogic>().UpdateScore(score);
     }
 }

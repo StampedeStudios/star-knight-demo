@@ -6,9 +6,11 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 {
     private ProgressBar healthBar = null;
 
-    private Label score = null;
+    private Label scoreLabel = null;
 
-    private Label ammo = null;
+    private Label ammoLabel = null;
+
+    private int playerScore = 0;
 
     void OnEnable()
     {
@@ -24,14 +26,14 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
         VisualElement root = uiDocument.rootVisualElement;
         healthBar = root.Q<ProgressBar>("HealthProgressBar");
 
-        score = root.Q<Label>("Score");
+        scoreLabel = root.Q<Label>("Score");
 
-        ammo = root.Q<Label>("AmmoLeft");
+        ammoLabel = root.Q<Label>("AmmoLeft");
     }
 
     public void UpdateAmmo(int ammoLeft)
     {
-        ammo.text = ammoLeft.ToString();
+        ammoLabel.text = ammoLeft.ToString();
     }
 
     public void UpdateHealth(int health)
@@ -41,6 +43,12 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 
     public void UpdateScore(int score)
     {
-        this.score.text = score.ToString("D3");
+        playerScore += score;
+        scoreLabel.text = playerScore.ToString("D3");
+    }
+
+    public int GetScore()
+    {
+        return playerScore;
     }
 }
