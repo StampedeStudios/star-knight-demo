@@ -898,7 +898,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 569772280, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: reloadTime
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7298318303997662003, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: m_Name

@@ -15,5 +15,4 @@
 
 .health-bar .unity-progress-bar__progress {
     background-color: #151A91;
-    border-radius: 0px 2px 2px 0px;
 }

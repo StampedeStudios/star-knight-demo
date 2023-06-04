@@ -12,6 +12,12 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
         statsHandler = GetComponent<StatsHandler>();
     }
 
+    private void Start()
+    {
+        if (statsHandler)
+            statsHandler.SetupHealth(Health, Health);
+    }
+
     public void DealDamage(int damage)
     {
         // sottraggo il danno subito

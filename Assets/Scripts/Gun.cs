@@ -27,9 +27,9 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private StatsHandler statsHandler = null;
 
-    public int bulletPerClip = 100;
+    public int bulletPerClip = 90;
 
-    private int ammoLeft = 100;
+    private int ammoLeft = 90;
 
     private bool isReloading = false;
 
@@ -50,6 +50,9 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private void Start()
     {
+        if (statsHandler)
+            statsHandler.SetupAmmo(ammoLeft, bulletPerClip);
+
         // ottengo riferimento al player
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -119,10 +122,12 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
     {
         StopShoot();
         isReloading = true;
+        statsHandler.SetIsReloading(isReloading);
         yield return new WaitForSeconds(reloadTime);
         ammoLeft = bulletPerClip;
         statsHandler.UpdateAmmo(ammoLeft);
         isReloading = false;
+        statsHandler.SetIsReloading(isReloading);
     }
 
     public void StartShoot()

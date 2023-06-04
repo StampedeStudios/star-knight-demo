@@ -10,6 +10,10 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 
     private Label ammoLabel = null;
 
+    private Label clipSizeLabel = null;
+
+    private Label reloadingLabel = null;
+
     private int playerScore = 0;
 
     void OnEnable()
@@ -29,11 +33,35 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
         scoreLabel = root.Q<Label>("Score");
 
         ammoLabel = root.Q<Label>("AmmoLeft");
+
+        clipSizeLabel = root.Q<Label>("ClipSize");
+
+        reloadingLabel = root.Q<Label>("ReloadingLabel");
+    }
+
+    public void SetIsReloading(bool isReloading)
+    {
+        if (isReloading)
+            reloadingLabel.visible = true;
+        else
+            reloadingLabel.visible = false;
+    }
+
+    public void SetupAmmo(int ammoLeft, int clipSize)
+    {
+        ammoLabel.text = ammoLeft.ToString();
+        clipSizeLabel.text = "-----\n" + clipSize.ToString();
     }
 
     public void UpdateAmmo(int ammoLeft)
     {
         ammoLabel.text = ammoLeft.ToString();
+    }
+
+    public void SetupHealth(int startingHealth, int maxHealth)
+    {
+        healthBar.value = startingHealth;
+        healthBar.highValue = maxHealth;
     }
 
     public void UpdateHealth(int health)
@@ -44,7 +72,7 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
     public void UpdateScore(int score)
     {
         playerScore += score;
-        scoreLabel.text = playerScore.ToString("D3");
+        scoreLabel.text = playerScore.ToString("D5");
     }
 
     public int GetScore()

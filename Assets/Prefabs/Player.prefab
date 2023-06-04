@@ -262,8 +262,8 @@ MonoBehaviour:
   isAsync: 1
   autoFire: 0
   hasReload: 1
-  reloadTime: 3
-  bulletPerClip: 100
+  reloadTime: 5
+  bulletPerClip: 90
 --- !u!114 &569772288
 MonoBehaviour:
   m_ObjectHideFlags: 0
