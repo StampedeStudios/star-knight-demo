@@ -8,6 +8,8 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 
     private Label scoreLabel = null;
 
+    private Label waveLabel = null;
+
     private Label ammoLabel = null;
 
     private Label clipSizeLabel = null;
@@ -35,6 +37,13 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
         clipSizeLabel = root.Q<Label>("ClipSize");
 
         reloadingLabel = root.Q<Label>("ReloadingLabel");
+
+        waveLabel = root.Q<Label>("WaveLabel");
+    }
+
+    public void UpdateWave(int wave)
+    {
+        waveLabel.text = wave.ToString("D2");
     }
 
     public void SetIsReloading(bool isReloading)

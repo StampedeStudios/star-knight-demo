@@ -2,12 +2,19 @@
     <Style src="project://database/Assets/UI/UIStyleSheet.uss?fileID=7433441132597879392&amp;guid=01bc51889be11e141a001f15313c65a4&amp;type=3#UIStyleSheet" />
     <ui:VisualElement name="Container" style="flex-grow: 1; -unity-background-scale-mode: scale-and-crop; align-items: center;">
         <ui:VisualElement name="UpperSpace" style="flex-grow: 7; width: 100%; flex-direction: row; justify-content: center; align-items: flex-start;">
-            <ui:VisualElement name="TopBar" class="top-bar">
-                <ui:VisualElement name="ScorePanel" class="score-panel">
-                    <ui:VisualElement name="ScoreCounter" class="score-counter">
+            <ui:VisualElement name="TopBar" class="top-bar" style="width: 80%;">
+                <ui:VisualElement name="ScorePanel" class="score-panel" style="align-items: flex-end; justify-content: center; flex-direction: column; width: 20%; height: 20%;">
+                    <ui:VisualElement name="ScoreCounter" class="score-counter" style="height: 80%;">
                         <ui:VisualElement name="ScoreImage" class="score-image" style="height: 90px; width: 50px;" />
                         <ui:Label display-tooltip-when-elided="true" name="Score" text="00000" enable-rich-text="false" class="score-text" />
                     </ui:VisualElement>
+                    <ui:Label text="Score" display-tooltip-when-elided="true" name="ScroeLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); -unity-font-style: bold; margin-top: 5px; color: rgb(255, 255, 255);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="WavePanel" class="score-panel" style="align-items: flex-start; justify-content: center; flex-direction: column; width: 20%; height: 20%;">
+                    <ui:VisualElement name="WaveCounter" class="score-counter" style="height: 80%;">
+                        <ui:Label display-tooltip-when-elided="true" name="Wave" text="00" enable-rich-text="false" class="score-text" />
+                    </ui:VisualElement>
+                    <ui:Label text="Wave" display-tooltip-when-elided="true" name="WaveLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); -unity-font-style: bold; margin-top: 5px; color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

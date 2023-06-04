@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MainMenuLogic : MonoBehaviour
 {
-
-    VisualElement commandsWindow = null;
 
     void OnEnable()
     {
@@ -20,6 +16,8 @@ public class MainMenuLogic : MonoBehaviour
         }
 
         VisualElement root = uiDocument.rootVisualElement;
+        VisualElement commandsWindow = root.Q<VisualElement>("CommandsWindow");
+        VisualElement creditsWindow = root.Q<VisualElement>("CreditsWindow");
 
         Button startButton = root.Q<Button>("StartButton");
         startButton.clicked += () => StartGame();
@@ -28,26 +26,27 @@ public class MainMenuLogic : MonoBehaviour
         quitButton.clicked += () => QuitGame();
 
         Button commandButton = root.Q<Button>("CommandButton");
-        commandButton.clicked += () => CommandGame();
+        commandButton.clicked += () => commandsWindow.visible = true;
 
-        commandsWindow = root.Q<VisualElement>("CommandsWindow");
+        Button creditsButton = root.Q<Button>("CreditsButton");
+        creditsButton.clicked += () => creditsWindow.visible = true;
+
+        Button howToPlayCloseButton = root.Q<Button>("HowToPlayCloseButton");
+        howToPlayCloseButton.clicked += () => commandsWindow.visible = false;
+
+
+        Button creditsCloseButton = root.Q<Button>("CloseCreditsButton");
+        creditsCloseButton.clicked += () => creditsWindow.visible = false;
     }
 
     private void StartGame()
     {
-        // Load the game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene("Universe");
     }
 
     private void QuitGame()
     {
-        // Quit the game
         Application.Quit();
-    }
-
-    private void CommandGame()
-    {
-        commandsWindow.visible = true;
     }
 
 }

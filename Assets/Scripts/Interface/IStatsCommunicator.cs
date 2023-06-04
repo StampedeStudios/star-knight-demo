@@ -13,4 +13,6 @@ public interface IStatsCommunicator
 
     public void UpdateScore(int score);
 
+    public void UpdateWave(int wave);
+
 }
