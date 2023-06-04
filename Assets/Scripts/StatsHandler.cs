@@ -3,36 +3,36 @@ using UnityEngine;
 public class StatsHandler : MonoBehaviour
 {
 
-    private GameObject gameUI = null;
+    private UILogic gameUI;
 
     public void Awake()
     {
-        gameUI = GameObject.FindGameObjectWithTag("GameUI");
+        gameUI = GameObject.FindObjectOfType<UILogic>();
     }
 
     public void SetupAmmo(int ammoLeft, int clipSize)
     {
-        gameUI.GetComponent<UILogic>().SetupAmmo(ammoLeft, clipSize);
+        gameUI.SetupAmmo(ammoLeft, clipSize);
     }
 
     public void UpdateAmmo(int ammoLeft)
     {
-        gameUI.GetComponent<UILogic>().UpdateAmmo(ammoLeft);
+        gameUI.UpdateAmmo(ammoLeft);
     }
 
     public void SetIsReloading(bool isReloading)
     {
-        gameUI.GetComponent<UILogic>().SetIsReloading(isReloading);
+        gameUI.SetIsReloading(isReloading);
     }
 
     public void SetupHealth(int startingHealth, int maxHealth)
     {
-        gameUI.GetComponent<UILogic>().SetupHealth(startingHealth, maxHealth);
+        gameUI.SetupHealth(startingHealth, maxHealth);
     }
 
     public void UpdateHealth(int health)
     {
-        gameUI.GetComponent<UILogic>().UpdateHealth(health);
+        gameUI.UpdateHealth(health);
     }
 
 }

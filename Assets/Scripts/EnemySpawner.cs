@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-
 public class EnemySpawner : MonoBehaviour
 {
     public LevelDifficulty[] levelDifficulties;
@@ -12,10 +11,16 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject player;
 
+    private UILogic gameUI;
+    private int currentScore = 0;
+
+    private int currentLevel = 0;
+
     private void Awake()
     {
         // calcolo la metà dell area di spawn
         spawnLenght = GetComponent<BoxCollider2D>().size.x / 2;
+        gameUI = GameObject.FindObjectOfType<UILogic>();
     }
 
     private void Start()
@@ -31,12 +36,31 @@ public class EnemySpawner : MonoBehaviour
 
         if (levelDifficulties != null & levelDifficulties.Length > 0)
         {
-            IncreaseDifficulty(0);
+            IncreaseDifficulty(currentLevel);
             StartCoroutine(CallSpawn());
         }
     }
 
-    public void IncreaseDifficulty(int newLevel)
+    public void UpdateScore(int score)
+    {
+        currentScore += score;
+        gameUI.UpdateScore(currentScore);
+        if (currentScore >= levelDifficulties[currentLevel].levelGoal)
+            if (currentLevel < levelDifficulties.Length - 1)
+            {
+                currentLevel++;
+                IncreaseDifficulty(currentLevel);
+            }
+            else
+                EndGame();
+    }
+
+    private void EndGame()
+    {
+        Debug.Log("END GAME !");
+    }
+
+    void IncreaseDifficulty(int newLevel)
     {
         // incremento la difficolta
         maxSpawnTime = levelDifficulties[newLevel].maxSpawnTime;

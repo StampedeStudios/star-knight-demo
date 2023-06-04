@@ -13,5 +13,4 @@ public interface IStatsCommunicator
 
     public void UpdateScore(int score);
 
-    public int GetScore();
 }

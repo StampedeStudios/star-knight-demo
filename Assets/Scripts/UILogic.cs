@@ -14,8 +14,6 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 
     private Label reloadingLabel = null;
 
-    private int playerScore = 0;
-
     void OnEnable()
     {
         // Get UI Document
@@ -71,12 +69,7 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 
     public void UpdateScore(int score)
     {
-        playerScore += score;
-        scoreLabel.text = playerScore.ToString("D5");
+        scoreLabel.text = score.ToString("D5");
     }
 
-    public int GetScore()
-    {
-        return playerScore;
-    }
 }
