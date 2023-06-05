@@ -1,0 +1,37 @@
+name: Build and Deploy of StarKnight
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build Game
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build project as WebGL
+        uses: game-ci/unity-builder@v2
+        with:
+          targetPlatform: WebGL
+          
+  deploy:
+    name: Deploy to itch.io
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to itch.io
+        uses: hazzard993/itch-deploy@v2
+        with:
+          api_key: ${{ secrets.ITCH_API_KEY }}
+          channel: Beta Testing
+          project: StarKnight
+          build: StarKnight/dist
