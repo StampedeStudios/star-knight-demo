@@ -19,6 +19,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      # Cache Library folder
+      - name: Cache Library folder
+        uses: actions/cache@v2
+        with:
+          path: path/to/your/project/Library
+          key: Library-MyProjectName-TargetPlatform
+          restore-keys: |
+            Library-MyProjectName-
+            Library-
+
       # Build
       - name: Build project
         uses: game-ci/unity-builder@v2
@@ -28,7 +38,14 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          
+
+      # Upload
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build
+
   deploy:
     name: Deploy to itch.io
     needs: build
@@ -44,4 +61,4 @@ jobs:
           api-key: ${{ secrets.ITCH_API_KEY }}
           project-name: StarKnight
           channel-name: HTML5
-          build-path: StarKnight/dist
+          build-path: build
