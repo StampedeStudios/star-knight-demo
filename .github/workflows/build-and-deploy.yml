@@ -43,8 +43,8 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build
-          path: build
+          name: build-WebGL
+          path: build/WebGL
 
   deploy:
     name: Deploy to itch.io
@@ -55,17 +55,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # Download build artifact
       - uses: actions/download-artifact@v2
         with:
-          name: Build
+          name: build-WebGL
           path: build
 
+      # Display structure of root files
+      - name: Display structure of root files
+        run: ls -R
+        working-directory: build/WebGL
+
+      # Deploy
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: itch-io
-          folder: build
+          folder: build/WebGL
 
+      # Publish
       - uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_API_KEY }}
@@ -73,4 +81,4 @@ jobs:
           ITCH_GAME: StarKnight
           ITCH_USER: Surveiior
           BRANCH: itch-io
-          PACKAGE: build
+          PACKAGE: build/WebGL
