@@ -15,6 +15,15 @@ jobs:
         working-directory: StarKnight
 
     steps:
+      - name: Unity - Check License
+        uses: game-ci/unity-activate@v2.0.0
+        with:
+          unityVersion: 2021.3.25f1
+          serial: ${{ secrets.UNITY_LICENSE }}
+          email: ${{ secrets.UNITY_EMAIL }}
+          password: ${{ secrets.UNITY_PASSWORD }}
+
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
