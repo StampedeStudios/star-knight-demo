@@ -31,7 +31,7 @@ jobs:
 
       # Build
       - name: Build project
-        uses: game-ci/unity-builder@v2.2.0
+        uses: game-ci/unity-builder@v2
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -53,12 +53,24 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Deploy to itch.io
-        uses: game-ci/itchio-deploy@v1
+      - uses: actions/download-artifact@v2
         with:
-          api-key: ${{ secrets.ITCH_API_KEY }}
-          project-name: StarKnight
-          channel-name: HTML5
-          build-path: build
+          name: Build
+          path: build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: itch-io
+          folder: build/WebGL
+
+      - uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCH_API_KEY }}
+          CHANNEL: HTML
+          ITCH_GAME: StarKnight
+          ITCH_USER: Surveiior
+          BRANCH: itch-io
+          PACKAGE: build/WebGL
