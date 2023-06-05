@@ -10,6 +10,10 @@ jobs:
     name: Build Game
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: StarKnight
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -32,10 +36,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Deploy to itch.io
-        uses: hazzard993/itch-deploy@v2
-        with:
-          api_key: ${{ secrets.ITCH_API_KEY }}
-          channel: Beta Testing
-          project: StarKnight
-          build: StarKnight/dist
+      - name: Deploy
+        uses: josephbmanley/butler-publish-itchio-action@v1.0.3
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCH_API_KEY }}
+          CHANNEL: Beta Testing
+          ITCH_GAME: StarKnight
+          ITCH_USER: Surveiior
+          PACKAGE: StarKnight/dist
