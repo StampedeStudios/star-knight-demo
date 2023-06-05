@@ -20,14 +20,12 @@ jobs:
 
       - name: Build project as Unity WebGL
         uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          target-platform: WebGL
-          unity-version: 2021.3.25f1
-          project-path: StarKnight
-          build-name: WebGL
-          build-path: StarKnight/dist
-          build-script: BuildScript.BuildWebGL
-          extra-args: --no-cache
+          targetPlatform: WebGL
           
   deploy:
     name: Deploy to itch.io
