@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-    - name: Activate Unity License
+      - name: Activate Unity License
         uses: game-ci/unity-activate@v2
         with:
           unityVersion: 2020.3.25f1
