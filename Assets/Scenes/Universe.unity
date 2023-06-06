@@ -156,11 +156,25 @@ MonoBehaviour:
   levelDifficulties:
   - enemyTypes:
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 12
+    maxSpawnTime: 1
+    levelGoal: 999
+  - enemyTypes:
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
     maxSpawnTime: 1
-    levelGoal: 9999
+    levelGoal: 20
+  - enemyTypes:
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    maxSpawnTime: 1
+    levelGoal: 20
 --- !u!61 &175164062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -882,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[1].enemyTypes.Array.size
@@ -902,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 377939962}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.data[0].percentage
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6554365686901731899, guid: f2940560e151d5642ae69dbfffda83fb, type: 3}
       propertyPath: levelDifficulties.Array.data[0].enemyTypes.Array.data[1].percentage
@@ -968,6 +982,10 @@ PrefabInstance:
     - target: {fileID: 569772280, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: reloadTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 569772280, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
+      propertyPath: bulletPerClip
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7298318303997662003, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: m_Name

@@ -27,9 +27,9 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private StatsHandler statsHandler = null;
 
-    public int bulletPerClip = 90;
+    public int bulletPerClip = 100;
 
-    private int ammoLeft = 90;
+    private int ammoLeft = 0;
 
     private bool isReloading = false;
 
@@ -46,6 +46,7 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
     private void Awake()
     {
         statsHandler = GetComponent<StatsHandler>();
+        ammoLeft = bulletPerClip;
     }
 
     private void Start()

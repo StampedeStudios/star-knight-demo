@@ -38,7 +38,7 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
 
         reloadingLabel = root.Q<Label>("ReloadingLabel");
 
-        waveLabel = root.Q<Label>("WaveLabel");
+        waveLabel = root.Q<Label>("Wave");
     }
 
     public void UpdateWave(int wave)

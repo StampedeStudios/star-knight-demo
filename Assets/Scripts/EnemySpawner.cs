@@ -79,6 +79,7 @@ public class EnemySpawner : MonoBehaviour
         // incremento la difficolta
         maxSpawnTime = levelDifficulties[newLevel].maxSpawnTime;
         currentEnemyPercentage = levelDifficulties[newLevel].enemyTypes;
+        gameUI.UpdateWave(newLevel);
     }
 
     IEnumerator CallSpawn()
