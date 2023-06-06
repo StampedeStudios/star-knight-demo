@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/MenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=b90ca75361d88b84a9d47eeb96726636&amp;type=3#MenuStyleSheet" />
-    <ui:VisualElement name="Container" style="height: 100%; width: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.1);">
+    <ui:VisualElement name="Container" style="height: 100%; width: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.1); visibility: visible;">
         <ui:VisualElement name="MainDiv" style="height: 100%; width: auto; min-width: 300px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
             <ui:VisualElement name="GameTitle" style="background-image: url(&apos;project://database/Assets/Sprites/Title.png?fileID=2800000&amp;guid=2211b2b8b0de9b743b415101e759e0c9&amp;type=3#Title&apos;); width: 384px; height: 384px;" />
             <ui:Button text="Start" display-tooltip-when-elided="true" name="StartButton" class="menu-button" />
@@ -9,22 +9,22 @@
             <ui:Button text="Exit" display-tooltip-when-elided="true" name="ExitButton" class="menu-button" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="CommandsWindow" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.74); align-items: center; justify-content: center; visibility: hidden; display: flex;">
-        <ui:VisualElement name="Content" class="how-to-play-content" style="align-items: center;">
-            <ui:VisualElement name="TopBar" style="justify-content: space-between; flex-direction: row; width: 100%;">
+    <ui:VisualElement name="CommandsWindow" style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center; visibility: hidden; display: flex;">
+        <ui:VisualElement name="Content" class="modal" style="align-items: center;">
+            <ui:VisualElement name="TopBar" style="justify-content: space-between; flex-direction: row; width: 100%; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;">
                 <ui:Label text="How to play" display-tooltip-when-elided="true" name="HowToPlayLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 30px; -unity-text-align: upper-left; color: rgb(255, 255, 255); text-shadow: 2px 2px 0 rgb(0, 0, 0); -unity-font-style: bold; width: 30%;" />
                 <ui:Button text="X" display-tooltip-when-elided="true" enable-rich-text="false" name="HowToPlayCloseButton" class="close-button" />
             </ui:VisualElement>
-            <ui:Label text="Fight the enemies and destroy their ships before they destroy yours; Pay attention to your shield level and your ammo count.&#10;&#10;&#10;&#10;Use &lt;b&gt;arrow keys&lt;/b&gt; to move.&#10;&#10;Press &lt;b&gt;spacebar&lt;/b&gt; to shoot and &lt;b&gt;R&lt;/b&gt; to reload." display-tooltip-when-elided="true" name="HowToPlayInfo" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 22px; -unity-text-align: upper-left; color: rgb(255, 255, 255); height: 80%; white-space: normal; letter-spacing: 10px;" />
+            <ui:Label text="Fight the enemies and destroy their ships before they destroy yours; Pay attention to your shield level and your ammo count.&#10;&#10;&#10;&#10;Use &lt;b&gt;arrow keys&lt;/b&gt; to move.&#10;&#10;Press &lt;b&gt;spacebar&lt;/b&gt; to shoot and &lt;b&gt;R&lt;/b&gt; to reload." display-tooltip-when-elided="true" name="HowToPlayInfo" class="modal-content" />
         </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="CreditsWindow" style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.74); align-items: center; justify-content: center; visibility: hidden; display: flex;">
-        <ui:VisualElement name="Content" class="how-to-play-content" style="align-items: center;">
-            <ui:VisualElement name="TopBar" style="justify-content: space-between; flex-direction: row; width: 100%;">
+    <ui:VisualElement name="CreditsWindow" style="position: absolute; width: 100%; height: 100%; align-items: center; justify-content: center; visibility: hidden; display: flex;">
+        <ui:VisualElement name="Content" class="modal" style="align-items: center;">
+            <ui:VisualElement name="TopBar" style="justify-content: space-between; flex-direction: row; width: 100%; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px;">
                 <ui:Label text="Credits" display-tooltip-when-elided="true" name="CreditsLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 30px; -unity-text-align: upper-left; color: rgb(255, 255, 255); text-shadow: 2px 2px 0 rgb(0, 0, 0); -unity-font-style: bold; width: 30%;" />
                 <ui:Button text="X" display-tooltip-when-elided="true" enable-rich-text="false" name="CloseCreditsButton" class="close-button" />
             </ui:VisualElement>
-            <ui:Label display-tooltip-when-elided="true" name="CreditsText" text="This game is made by Stampede Studios, a small indie game studio based in Italy.&#10;&#10;&#10;Every asset is made by us, except for the following:&#10;&#10;- The arrow curser coming from [Pixel Cursor] asset made by ClayManStudio&#10;- The used text font [Micro - Pixelate Modern Font] made by HamzStudio." style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 22px; -unity-text-align: upper-left; color: rgb(255, 255, 255); height: 80%; white-space: normal; letter-spacing: 10px;" />
+            <ui:Label display-tooltip-when-elided="true" name="CreditsText" text="This game is made by Stampede Studios, a small indie game studio based in Italy.&#10;&#10;&#10;Every asset is made by us, except for the following:&#10;&#10;- The arrow curser coming from [Pixel Cursor] asset made by ClayManStudio&#10;- The used text font [Micro - Pixelate Modern Font] made by HamzStudio." class="modal-content" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

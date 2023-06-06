@@ -12,13 +12,13 @@
 }
 
 .menu-button:hover {
-	background-color: #3a7999;
-	border-color: #f2f2f2;
-	padding: 10px;
-	font-size: 18px;
-	border-radius: 5px;
-	position: relative;
-	transition: all 500ms ease; 
+    background-color: rgb(58, 121, 153);
+    border-color: rgb(242, 242, 242);
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    position: relative;
+    transition: all 500ms ease;
 }
 
 .menu-button:active {
@@ -34,29 +34,36 @@
     border-radius: 3px;
     border-color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.5);
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     -unity-text-align: middle-center;
 }
 
 .close-button:hover {
-	background-color: #3a7999;
-	border-color: #f2f2f2;
-	transition: all 500ms ease; 
+    background-color: rgb(58, 121, 153);
+    border-color: rgb(242, 242, 242);
+    transition: all 500ms ease;
 }
 
 .close-button:active {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.how-to-play-content {
+.modal {
     width: 80%;
     height: 80%;
     padding: 10px;
-    border-width: 2px;
-    border-radius: 5px;
-    border-color: #f2f2f2;
-    background-color: #2B7499;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.modal-content {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    font-size: 22px;
+    -unity-text-align: upper-left;
+    color: rgb(255, 255, 255);
+    height: 80%;
+    white-space: normal;
+    letter-spacing: 10px;
+    width: 100%;
 }

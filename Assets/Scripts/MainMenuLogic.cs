@@ -18,6 +18,7 @@ public class MainMenuLogic : MonoBehaviour
         VisualElement root = uiDocument.rootVisualElement;
         VisualElement commandsWindow = root.Q<VisualElement>("CommandsWindow");
         VisualElement creditsWindow = root.Q<VisualElement>("CreditsWindow");
+        VisualElement containerWindow = root.Q<VisualElement>("Container");
 
         Button startButton = root.Q<Button>("StartButton");
         startButton.clicked += () => StartGame();
@@ -26,17 +27,33 @@ public class MainMenuLogic : MonoBehaviour
         quitButton.clicked += () => QuitGame();
 
         Button commandButton = root.Q<Button>("CommandButton");
-        commandButton.clicked += () => commandsWindow.visible = true;
+        commandButton.clicked += () =>
+        {
+            commandsWindow.visible = true;
+            containerWindow.visible = false;
+        };
 
         Button creditsButton = root.Q<Button>("CreditsButton");
-        creditsButton.clicked += () => creditsWindow.visible = true;
+        creditsButton.clicked += () =>
+        {
+            creditsWindow.visible = true;
+            containerWindow.visible = false;
+        };
 
         Button howToPlayCloseButton = root.Q<Button>("HowToPlayCloseButton");
-        howToPlayCloseButton.clicked += () => commandsWindow.visible = false;
+        howToPlayCloseButton.clicked += () =>
+        {
+            commandsWindow.visible = false;
+            containerWindow.visible = true;
+        };
 
 
         Button creditsCloseButton = root.Q<Button>("CloseCreditsButton");
-        creditsCloseButton.clicked += () => creditsWindow.visible = false;
+        creditsCloseButton.clicked += () =>
+        {
+            creditsWindow.visible = false;
+            containerWindow.visible = true;
+        };
     }
 
     private void StartGame()
