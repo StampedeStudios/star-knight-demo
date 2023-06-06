@@ -156,14 +156,9 @@ MonoBehaviour:
   levelDifficulties:
   - enemyTypes:
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 12
-    maxSpawnTime: 1
-    levelGoal: 999
-  - enemyTypes:
+      percentage: 50
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 100
-    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 100
+      percentage: 70
     maxSpawnTime: 1
     levelGoal: 20
   - enemyTypes:
@@ -171,10 +166,17 @@ MonoBehaviour:
       percentage: 100
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
+    maxSpawnTime: 1
+    levelGoal: 50
+  - enemyTypes:
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
     maxSpawnTime: 1
-    levelGoal: 20
+    levelGoal: 100
 --- !u!61 &175164062
 BoxCollider2D:
   m_ObjectHideFlags: 0

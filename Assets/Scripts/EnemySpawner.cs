@@ -33,7 +33,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartEnemySpawning();// Usato per spawnare nemici in fase di test
+        StartEnemySpawning(); // Usato per spawnare nemici in fase di test
+    }
+
+    private void FixedUpdate()
+    {
+        if (!player)
+        {
+            deathHandler.ShowDeathScreen(currentScore, currentLevel);
+            Destroy(gameObject);
+        }
     }
 
     public void StartEnemySpawning()
@@ -61,12 +70,6 @@ public class EnemySpawner : MonoBehaviour
             }
             else
                 EndGame();
-
-        if (!player)
-        {
-            deathHandler.ShowDeathScreen(currentScore, currentLevel);
-            Destroy(gameObject);
-        }
     }
 
     private void EndGame()
