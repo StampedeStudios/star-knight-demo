@@ -53,7 +53,6 @@ public class EnemySpawner : MonoBehaviour
     {
         currentScore += score;
         gameUI.UpdateScore(currentScore);
-        deathHandler.UpdateStats(currentScore, currentLevel);
         if (currentScore >= levelDifficulties[currentLevel].levelGoal)
             if (currentLevel < levelDifficulties.Length - 1)
             {
@@ -62,6 +61,12 @@ public class EnemySpawner : MonoBehaviour
             }
             else
                 EndGame();
+
+        if (!player)
+        {
+            deathHandler.ShowDeathScreen(currentScore, currentLevel);
+            Destroy(gameObject);
+        }
     }
 
     private void EndGame()

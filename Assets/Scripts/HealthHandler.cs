@@ -28,12 +28,7 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
 
         // controllo se la vita è finita
         if (Health <= 0)
-        {
             Die();
-
-            if (statsHandler)
-                statsHandler.ShowDeathScreen();
-        }
     }
 
     private void Die()

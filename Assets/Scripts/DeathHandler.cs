@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -43,14 +44,17 @@ public class DeathHandler : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Universe");
     }
 
-    public void ShowDeathScreen()
-    {
-        deathScreenDiv.visible = true;
-    }
-
-    public void UpdateStats(int scoreReached, int waveReached)
+    public void ShowDeathScreen(int scoreReached, int waveReached)
     {
         scoreReachedLabel.text = "SCORE REACHED: " + scoreReached.ToString();
         waveReachedLabel.text = "WAVE REACHED: " + waveReached.ToString();
+
+        StartCoroutine(ShowDeathScreenCoroutine());
+    }
+
+    private IEnumerator ShowDeathScreenCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        deathScreenDiv.visible = true;
     }
 }
