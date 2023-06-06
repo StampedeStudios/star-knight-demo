@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=b90ca75361d88b84a9d47eeb96726636&amp;type=3#MenuStyleSheet" />
+    <ui:VisualElement name="Container" style="width: 100%; height: 100%; align-items: center; justify-content: center; background-color: rgba(0, 0, 0, 0.15); visibility: hidden; display: flex; opacity: 1;">
+        <ui:VisualElement name="CentralContent" style="width: 40%; height: 40%; align-items: center; justify-content: space-around; background-color: rgba(0, 0, 0, 0.47); border-left-color: rgba(110, 116, 255, 0.79); border-right-color: rgba(110, 116, 255, 0.79); border-top-color: rgba(110, 116, 255, 0.79); border-bottom-color: rgba(110, 116, 255, 0.79); border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px;">
+            <ui:VisualElement name="TopSection" style="justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement name="Icon" style="align-items: stretch; background-image: url(&apos;project://database/Assets/Sprites/Skull.png?fileID=2800000&amp;guid=a24aa9f7cf5a9b24e8a9bc6f576a8811&amp;type=3#Skull&apos;); width: 128px; height: 128px; -unity-background-scale-mode: scale-to-fit;" />
+                <ui:Label text="YOUR SHIP HAS BEEN DESTROYED" display-tooltip-when-elided="true" name="WindowTitle" style="font-size: 30px; -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); -unity-text-align: middle-center; color: rgb(255, 255, 255);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="MiddleSection" style="width: 80%; height: 30%;">
+                <ui:Label text="SCORE REACHED: 1022" display-tooltip-when-elided="true" name="ScoreLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 20px; padding-top: 5px; padding-bottom: 5px; color: rgb(255, 255, 255);" />
+                <ui:Label text="WAVE REACHED: 03" display-tooltip-when-elided="true" name="WaveLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); font-size: 20px; padding-bottom: 5px; color: rgb(255, 255, 255);" />
+            </ui:VisualElement>
+            <ui:VisualElement name="BottomSection" style="width: 80%; flex-direction: row; justify-content: center; align-items: center;">
+                <ui:Button text="GO TO MENU" display-tooltip-when-elided="true" name="MenuButton" class="menu-button" style="padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; width: 200px;" />
+                <ui:Button text="RESTART" display-tooltip-when-elided="true" name="RestartButton" class="menu-button" style="padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; width: 200px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

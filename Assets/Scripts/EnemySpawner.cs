@@ -12,15 +12,23 @@ public class EnemySpawner : MonoBehaviour
     private GameObject player;
 
     private UILogic gameUI;
+
+    private DeathHandler deathHandler;
+
     private int currentScore = 0;
 
+    public int CurrentScore { get { return currentScore; } }
+
     private int currentLevel = 0;
+
+    public int CurrentLevel { get { return currentLevel; } }
 
     private void Awake()
     {
         // calcolo la metà dell area di spawn
         spawnLenght = GetComponent<BoxCollider2D>().size.x / 2;
         gameUI = GameObject.FindObjectOfType<UILogic>();
+        deathHandler = GameObject.FindObjectOfType<DeathHandler>();
     }
 
     private void Start()
@@ -45,6 +53,7 @@ public class EnemySpawner : MonoBehaviour
     {
         currentScore += score;
         gameUI.UpdateScore(currentScore);
+        deathHandler.UpdateStats(currentScore, currentLevel);
         if (currentScore >= levelDifficulties[currentLevel].levelGoal)
             if (currentLevel < levelDifficulties.Length - 1)
             {
@@ -57,7 +66,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("END GAME !");
+        Debug.Log("END GAME!");
     }
 
     void IncreaseDifficulty(int newLevel)

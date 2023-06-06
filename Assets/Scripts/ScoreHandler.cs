@@ -10,5 +10,6 @@ public class ScoreHandler : MonoBehaviour, IDeathIterface
         EnemySpawner enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
         if (enemySpawner)
             enemySpawner.UpdateScore(score);
+
     }
 }
