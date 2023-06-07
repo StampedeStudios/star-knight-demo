@@ -74,10 +74,17 @@ public class EnemySpawner : MonoBehaviour
 
     private void EndGame()
     {
-        gameHandler.ShowEndScreen(currentScore, currentLevel, false);
         StopAllCoroutines();
+
+        GameObject[] leftEnemys ;
+        leftEnemys = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var item in leftEnemys)
+        {
+            Destroy(item);
+        }
+
+        gameHandler.ShowEndScreen(currentScore, currentLevel, false);
         Destroy(gameObject);
-        // TODO: Gestire distruzione di tutti i nemici (?)
     }
 
     void IncreaseDifficulty(int newLevel)
