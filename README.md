@@ -1,4 +1,4 @@
-# StartKnight
+# StarKnight
 
 [![Build and Deploy of StarKnight](https://github.com/StampedeStudios/StartKnight/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/StampedeStudios/StartKnight/actions/workflows/build-and-deploy.yml)
 
