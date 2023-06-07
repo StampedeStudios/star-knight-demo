@@ -5,6 +5,8 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
     [Tooltip("Vita del possessore")]
     public int Health = 100;
 
+    public AudioClip deathExplosion;
+
     private StatsHandler statsHandler = null;
 
     private void Awake()
@@ -39,12 +41,16 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
             item.OnDeathEvent();
         }
 
+        AudioSource.PlayClipAtPoint(deathExplosion, transform.position);
+
         // recupero l' animatore ed eseguo l' animazione dedicata 
         Animator anim = GetComponent<Animator>();
         if (anim)
             anim.SetBool("isDead", true);
         else
             Destroy(gameObject);
+
+        Destroy(this);
     }
 
 }

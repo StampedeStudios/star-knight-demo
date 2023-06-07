@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
         rb.simulated = false;
 
         // creo esplosione proiettile
-        Instantiate(explosion).transform.position = transform.position;
+        Instantiate(explosion, transform.position, Quaternion.identity);
 
         // chiamo l' interfaccia di danno
         IHittableInterface hittableInterface = other.collider.GetComponent<IHittableInterface>();

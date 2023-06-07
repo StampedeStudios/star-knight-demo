@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 60
+  deathExplosion: {fileID: 8300000, guid: c2326d588a585964ea971f18da6dcbf5, type: 3}
 --- !u!114 &8278183736026564064
 MonoBehaviour:
   m_ObjectHideFlags: 0

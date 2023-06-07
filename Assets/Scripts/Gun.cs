@@ -33,6 +33,8 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
 
     private bool isReloading = false;
 
+    private AudioSource audioSource;
+
     bool isFirst;
     enum IShootType
     {
@@ -46,6 +48,7 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
     private void Awake()
     {
         statsHandler = GetComponent<StatsHandler>();
+        audioSource = GetComponent<AudioSource>();
         ammoLeft = bulletPerClip;
     }
 
@@ -103,6 +106,7 @@ public class Gun : MonoBehaviour, IGunInterface, IDeathIterface
                     // colpo doppio alternato
                     Transform weaponTransform = isFirst ? weapon1.transform : weapon2.transform;
                     Instantiate(bullet).transform.SetPositionAndRotation(weaponTransform.position, weaponTransform.rotation);
+                    audioSource.Play();
                     isFirst = !isFirst;
                     ammoLeft -= 1;
                     break;
