@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 762865350}
   - component: {fileID: 762865351}
   m_Layer: 5
-  m_Name: DeathScreen
+  m_Name: EndScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 762865348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1a825682552c54b9df3b080e38d133, type: 3}
+  m_Script: {fileID: 11500000, guid: 27a2bf64365c82046a722b2f1e337554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1040535361

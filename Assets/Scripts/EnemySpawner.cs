@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     private UILogic gameUI;
 
-    private DeathHandler deathHandler;
+    private GameEventHandler gameHandler;
 
     private int currentScore = 0;
 
@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
         // calcolo la metà dell area di spawn
         spawnLenght = GetComponent<BoxCollider2D>().size.x / 2;
         gameUI = GameObject.FindObjectOfType<UILogic>();
-        deathHandler = GameObject.FindObjectOfType<DeathHandler>();
+        gameHandler = GameObject.FindObjectOfType<GameEventHandler>();
     }
 
     private void Start()
@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!player)
         {
-            deathHandler.ShowDeathScreen(currentScore, currentLevel);
+            gameHandler.ShowEndScreen(currentScore, currentLevel, true);
             Destroy(gameObject);
         }
     }
@@ -74,7 +74,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("END GAME!");
+        gameHandler.ShowEndScreen(currentScore, currentLevel, false);
+        StopAllCoroutines();
+        Destroy(gameObject);
+        // TODO: Gestire distruzione di tutti i nemici (?)
     }
 
     void IncreaseDifficulty(int newLevel)
