@@ -27,7 +27,3 @@ The game is configured to be deployed on itch.io using GitHub Actions. The deplo
 3. **Deploy** - Finally, the workflow deploys the game to itch.io by uploading the artifact to a specific game project.
 
 To set up the deployment for your own game, you need to configure the necessary secrets and adjust the workflow file located at `.github/workflows/build-and-deploy.yml` to match your project's needs. Refer to the official documentation of GitHub Actions and itch.io for more information.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code and assets as per the terms of the license.

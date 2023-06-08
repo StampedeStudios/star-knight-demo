@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthHandler : MonoBehaviour, IHittableInterface
@@ -5,7 +6,7 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
     [Tooltip("Vita del possessore")]
     public int Health = 100;
 
-    public AudioClip deathExplosion;
+    public List<AudioClip> deathExplosion;
 
     private StatsHandler statsHandler = null;
 
@@ -41,7 +42,8 @@ public class HealthHandler : MonoBehaviour, IHittableInterface
             item.OnDeathEvent();
         }
 
-        AudioSource.PlayClipAtPoint(deathExplosion, transform.position);
+        // suono di esplosione
+        AudioSource.PlayClipAtPoint(deathExplosion[Random.Range(0, deathExplosion.Count - 1)], transform.position);
 
         // recupero l' animatore ed eseguo l' animazione dedicata 
         Animator anim = GetComponent<Animator>();
