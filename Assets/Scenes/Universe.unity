@@ -160,23 +160,23 @@ MonoBehaviour:
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 70
     maxSpawnTime: 1
-    levelGoal: 20
-  - enemyTypes:
-    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 100
-    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
-      percentage: 100
-    maxSpawnTime: 1
     levelGoal: 50
   - enemyTypes:
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
+    maxSpawnTime: 1
+    levelGoal: 100
+  - enemyTypes:
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
+    - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
+      percentage: 100
     - enemy: {fileID: 3049213321814998754, guid: add88c6e2fca41b459b8501123e0b38c, type: 3}
       percentage: 100
     maxSpawnTime: 1
-    levelGoal: 100
+    levelGoal: 150
 --- !u!61 &175164062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -993,6 +993,14 @@ PrefabInstance:
       propertyPath: deathExplosion
       value: 
       objectReference: {fileID: 8300000, guid: c2326d588a585964ea971f18da6dcbf5, type: 3}
+    - target: {fileID: 569772288, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
+      propertyPath: deathExplosion.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 569772288, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
+      propertyPath: deathExplosion.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 94bfa313bc3658c458f7a1ab46d33ab4, type: 3}
     - target: {fileID: 7298318303997662003, guid: a9d4bb891129bc04fb958c5d689d1ec1, type: 3}
       propertyPath: m_Name
       value: Player
