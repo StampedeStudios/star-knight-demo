@@ -2,8 +2,8 @@ name: Build and Deploy of StarKnight
 
 on:
   push:
-    branches:
-      - master
+    branches: ['master']
+    paths: ['Assets/**', 'ProjectSettings/**']
 
 jobs:
   build:
