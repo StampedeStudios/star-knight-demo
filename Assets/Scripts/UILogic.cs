@@ -57,7 +57,7 @@ public class UILogic : MonoBehaviour, IStatsCommunicator
     public void SetupAmmo(int ammoLeft, int clipSize)
     {
         ammoLabel.text = ammoLeft.ToString();
-        clipSizeLabel.text = "-----\n" + clipSize.ToString();
+        clipSizeLabel.text = "---\n" + clipSize.ToString();
     }
 
     public void UpdateAmmo(int ammoLeft)

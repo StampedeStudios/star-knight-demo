@@ -8,29 +8,29 @@
                         <ui:VisualElement name="ScoreImage" class="score-image" style="height: 90px; width: 50px;" />
                         <ui:Label display-tooltip-when-elided="true" name="Score" text="00000" enable-rich-text="false" class="score-text" />
                     </ui:VisualElement>
-                    <ui:Label text="Score" display-tooltip-when-elided="true" name="ScroeLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); -unity-font-style: bold; margin-top: 5px; color: rgb(255, 255, 255);" />
+                    <ui:Label text="Score" display-tooltip-when-elided="true" name="ScroeLabel" style="-unity-font-style: bold; margin-top: 5px; color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
                 <ui:VisualElement name="WavePanel" class="score-panel" style="align-items: flex-start; justify-content: center; flex-direction: column; width: 20%; height: 20%;">
-                    <ui:VisualElement name="WaveCounter" class="score-counter" style="height: 80%;">
+                    <ui:VisualElement name="WaveCounter" class="score-counter" style="height: 80%; -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&amp;guid=94d9bad0c981172449989d54e8f779b9&amp;type=2#Font&apos;);">
                         <ui:Label display-tooltip-when-elided="true" name="Wave" text="00" enable-rich-text="false" class="score-text" />
                     </ui:VisualElement>
-                    <ui:Label text="Wave" display-tooltip-when-elided="true" name="WaveLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&amp;guid=1147eb3c6893f6f44ba141cb452996d5&amp;type=2#Micro SDF&apos;); -unity-font-style: bold; margin-top: 5px; color: rgb(255, 255, 255);" />
+                    <ui:Label text="Wave" display-tooltip-when-elided="true" name="WaveLabel" style="-unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&amp;guid=94d9bad0c981172449989d54e8f779b9&amp;type=2#Font&apos;); -unity-font-style: bold; margin-top: 5px; color: rgb(255, 255, 255);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="BottomSpace" class="bottom-section">
-            <ui:VisualElement name="AmmoPanel" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: column; width: 20%; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 3%; height: auto;">
-                <ui:VisualElement name="AmmoCounter" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: row; width: 100px; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 3%; height: 60%; justify-content: space-between; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+            <ui:VisualElement name="AmmoPanel" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: column; width: 20%; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 4%; height: auto; align-items: center; justify-content: center;">
+                <ui:VisualElement name="AmmoCounter" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: row; width: auto; margin-left: 4%; margin-right: 0; margin-top: 4%; margin-bottom: 3%; height: 60%; justify-content: space-between; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&amp;guid=94d9bad0c981172449989d54e8f779b9&amp;type=2#Font&apos;);">
                     <ui:VisualElement name="AmmoImage" class="ammo-image" />
                     <ui:VisualElement name="AmmoText" style="width: auto; -unity-text-align: middle-left; justify-content: center; -unity-font-style: normal;">
                         <ui:Label display-tooltip-when-elided="true" name="AmmoLeft" text="100" enable-rich-text="false" class="ammo-left-label" />
-                        <ui:Label display-tooltip-when-elided="true" name="ClipSize" text="-----&#10;100" enable-rich-text="false" class="clip-size-label" />
+                        <ui:Label display-tooltip-when-elided="true" name="ClipSize" text="---&#10;100" enable-rich-text="false" class="clip-size-label" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Label text="Plasma Cannon" display-tooltip-when-elided="true" name="WeaponName" class="ammo-label" />
-                <ui:Label text="Reloading..." display-tooltip-when-elided="true" name="ReloadingLabel" class="reloading-label" />
+                <ui:Label text="Plasma Cannon" display-tooltip-when-elided="true" name="WeaponName" class="ammo-label" style="-unity-text-align: upper-right; width: 80%;" />
+                <ui:Label text="Reloading..." display-tooltip-when-elided="true" name="ReloadingLabel" class="reloading-label" style="-unity-text-align: upper-right; visibility: hidden; width: 80%; font-size: 9px; -unity-font-style: normal;" />
             </ui:VisualElement>
-            <ui:VisualElement name="HealthPanel" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: row; width: 15%; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 3%; height: auto; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
+            <ui:VisualElement name="HealthPanel" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: row; width: 15%; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 3%; height: auto; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: center;">
                 <ui:VisualElement name="HealthCounter" style="justify-content: center; align-items: center; width: auto; flex-direction: column; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 80px; margin-right: 8px;">
                     <ui:VisualElement name="HealthImage" class="health-image" />
                     <ui:Label text="Shields" display-tooltip-when-elided="true" name="WeaponName" enable-rich-text="true" class="health-label" />

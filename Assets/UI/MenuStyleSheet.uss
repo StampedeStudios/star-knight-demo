@@ -1,5 +1,5 @@
 .menu-button {
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     -unity-text-align: upper-center;
     text-shadow: 2px 0 0 rgb(0, 0, 0);
     font-size: 18px;
@@ -26,7 +26,7 @@
 }
 
 .close-button {
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     -unity-text-align: upper-center;
     font-size: 18px;
     color: rgb(255, 255, 255);
@@ -58,7 +58,7 @@
 }
 
 .modal-content {
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     font-size: 22px;
     -unity-text-align: upper-left;
     color: rgb(255, 255, 255);
@@ -66,4 +66,29 @@
     white-space: normal;
     letter-spacing: 10px;
     width: 100%;
+}
+
+.end-screen-title {
+    font-size: 26px;
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+}
+
+.common-text {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.large-text {
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
+    font-size: 30px;
+    -unity-text-align: upper-left;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    -unity-font-style: bold;
+    width: 30%;
 }

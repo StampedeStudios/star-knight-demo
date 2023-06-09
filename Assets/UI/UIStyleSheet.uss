@@ -45,8 +45,7 @@
 .score-text {
     font-size: 26px;
     -unity-text-align: middle-center;
-    -unity-font: url('project://database/Assets/UI/Fonts/Micro.ttf?fileID=12800000&guid=276773b3b2f82564f9b39ee63c97642a&type=3#Micro');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     letter-spacing: 5px;
     text-shadow: 2px 0 0 rgb(0, 0, 0);
     color: rgb(255, 255, 255);
@@ -72,7 +71,7 @@
 }
 
 .health-label {
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     height: 10%;
     -unity-text-align: upper-center;
     color: rgb(255, 255, 255);
@@ -108,8 +107,7 @@
     justify-content: center;
     font-size: 24px;
     -unity-text-align: middle-left;
-    -unity-font: url('project://database/Assets/UI/Fonts/Micro.ttf?fileID=12800000&guid=276773b3b2f82564f9b39ee63c97642a&type=3#Micro');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     letter-spacing: 5px;
     text-shadow: 2px 0 0 rgb(0, 0, 0);
     color: rgb(255, 255, 255);
@@ -124,8 +122,7 @@
     justify-content: center;
     font-size: 24px;
     -unity-text-align: middle-left;
-    -unity-font: url('project://database/Assets/UI/Fonts/Micro.ttf?fileID=12800000&guid=276773b3b2f82564f9b39ee63c97642a&type=3#Micro');
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     letter-spacing: 5px;
     text-shadow: 2px 0 0 rgb(0, 0, 0);
     color: rgb(255, 255, 255);
@@ -134,7 +131,7 @@
 }
 
 .ammo-label {
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     height: 10%;
     -unity-text-align: upper-right;
     color: rgb(255, 255, 255);
@@ -165,7 +162,7 @@
 }
 
 .reloading-label {
-    -unity-font-definition: url('project://database/Assets/UI/Fonts/Micro%20SDF.asset?fileID=11400000&guid=1147eb3c6893f6f44ba141cb452996d5&type=2#Micro SDF');
+    -unity-font-definition: url('project://database/Assets/UI/Fonts/Font.asset?fileID=11400000&guid=94d9bad0c981172449989d54e8f779b9&type=2#Font');
     height: 10%;
     -unity-text-align: upper-right;
     color: rgb(255, 255, 255);

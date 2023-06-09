@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 276773b3b2f82564f9b39ee63c97642a
+guid: 5ec9f6bd372cede4c9a5076d01ca8bdb
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Micro
+  - Joystix
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

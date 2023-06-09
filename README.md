@@ -27,3 +27,15 @@ The game is configured to be deployed on itch.io using GitHub Actions. The deplo
 3. **Deploy** - Finally, the workflow deploys the game to itch.io by uploading the artifact to a specific game project.
 
 To set up the deployment for your own game, you need to configure the necessary secrets and adjust the workflow file located at `.github/workflows/build-and-deploy.yml` to match your project's needs. Refer to the official documentation of GitHub Actions and itch.io for more information.
+
+## Next Steps
+- [ ] Make the game more accessible.
+- [ ] Adding a more visible reload hint.
+- [ ] Adding levels and a level selection screen.
+- [ ] Handling save and load of game progress.
+
+## License
+This project has not been licensed yet, the goal is to make it open source and free to use for everyone. Every asset and code can freely be used for any purpose, exception made for explosion sound effects. If you want to use them, you need to purchase a license from the original authors:
+
+- BigExplosion made by Sound-Ideas.
+- AlienExpl1 and AlienExpl2 made by prosoundfx.
