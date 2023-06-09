@@ -33,6 +33,9 @@ To set up the deployment for your own game, you need to configure the necessary 
 - [ ] Adding a more visible reload hint.
 - [ ] Adding levels and a level selection screen.
 - [ ] Handling save and load of game progress.
+- [ ] Improving the spaceship movement.
+- [ ] Adding more enemy types.
+- [ ] Adding health packs and power-ups.
 
 ## License
 This project has not been licensed yet, the goal is to make it open source and free to use for everyone. Every asset and code can freely be used for any purpose, exception made for explosion sound effects. If you want to use them, you need to purchase a license from the original authors:
