@@ -33,7 +33,7 @@
             <ui:VisualElement name="HealthPanel" style="max-width: none; max-height: none; min-width: 80px; min-height: 80px; flex-direction: row; width: 10%; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 3%; height: auto; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; align-items: flex-start;">
                 <ui:VisualElement name="HealthCounter" style="justify-content: center; align-items: center; width: auto; flex-direction: column; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; height: 80px; margin-right: 8px;">
                     <ui:VisualElement name="HealthImage" class="health-image" />
-                    <ui:Label text="Shields" display-tooltip-when-elided="true" name="WeaponName" enable-rich-text="true" class="health-label" />
+                    <ui:Label text="Shields" display-tooltip-when-elided="true" name="WeaponName" enable-rich-text="true" class="health-label" style="padding-right: 5px; padding-left: 5px;" />
                 </ui:VisualElement>
                 <ui:VisualElement name="HealthBar" style="width: 20px; justify-content: center; height: 80px; align-items: center; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px;">
                     <ui:ProgressBar value="100" name="HealthProgressBar" class="health-bar" style="rotate: -90deg; width: 80px; height: 20px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; transform-origin: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />

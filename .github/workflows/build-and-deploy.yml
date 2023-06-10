@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: StarKnight
+        working-directory: ${{ vars.GAME_NAME }}
 
     steps:
       # Checkout
@@ -78,7 +78,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.ITCH_API_KEY }}
           CHANNEL: HTML
-          ITCH_GAME: StarKnight
+          ITCH_GAME: ${{ vars.GAME_NAME }}
           ITCH_USER: Surveiior
           BRANCH: itch-io
           PACKAGE: build/WebGL
