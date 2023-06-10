@@ -1,4 +1,4 @@
-name: Build and Deploy of StarKnight
+name: Build and Deploy
 
 on:
   push:
@@ -23,10 +23,10 @@ jobs:
       - name: Cache Library folder
         uses: actions/cache@v2
         with:
-          path: path/to/your/project/Library
-          key: Library-MyProjectName-TargetPlatform
+          path: Library
+          key: Library-${{vars.GAME_NAME}}-TargetPlatform
           restore-keys: |
-            Library-MyProjectName-
+            Library-${{vars.GAME_NAME}}-
             Library-
 
       # Build
